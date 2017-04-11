@@ -9,11 +9,19 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/RTPermission" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/avoscloud" />
+            <option value="$PROJECT_DIR$/filecloud" />
+            <option value="$PROJECT_DIR$/libzxing" />
+            <option value="$PROJECT_DIR$/map" />
+            <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/sdk" />
+            <option value="$PROJECT_DIR$/time-duration-picker" />
             <option value="$PROJECT_DIR$/tlslibrary" />
             <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/weather" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
