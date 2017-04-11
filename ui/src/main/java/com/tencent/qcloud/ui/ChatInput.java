@@ -82,6 +82,9 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         btnVideo.setOnClickListener(this);
         LinearLayout btnFile = (LinearLayout) findViewById(R.id.btn_file);
         btnFile.setOnClickListener(this);
+
+        LinearLayout btnNotify = (LinearLayout) findViewById(R.id.btn_notify);
+        btnNotify.setOnClickListener(this);
         setSendBtn();
         btnKeyboard = (ImageButton) findViewById(R.id.btn_keyboard);
         btnKeyboard.setOnClickListener(this);
@@ -314,15 +317,15 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         if (id == R.id.btn_send){
             chatView.sendText();
         }
-        if (id == R.id.btn_add){
+        else if (id == R.id.btn_add){
             updateView(inputMode == InputMode.MORE ? InputMode.TEXT : InputMode.MORE);
         }
-        if (id == R.id.btn_photo){
+        else if (id == R.id.btn_photo){
             if(activity!=null && requestCamera(activity)){
                 chatView.sendPhoto();
             }
         }
-        if (id == R.id.btn_image){
+        else if (id == R.id.btn_image){
             if(activity!=null && requestStorage(activity)){
                 chatView.sendImage();
             }
@@ -332,10 +335,10 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
                 updateView(InputMode.VOICE);
             }
         }
-        if (id == R.id.btn_keyboard){
+        else if (id == R.id.btn_keyboard){
             updateView(InputMode.TEXT);
         }
-        if (id == R.id.btn_video){
+        else if (id == R.id.btn_video){
             if (getContext() instanceof FragmentActivity){
                 FragmentActivity fragmentActivity = (FragmentActivity) getContext();
                 if (requestVideo(fragmentActivity)){
@@ -343,11 +346,14 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
                 }
             }
         }
-        if (id == R.id.btnEmoticon){
+        else if (id == R.id.btnEmoticon){
             updateView(inputMode == InputMode.EMOTICON?InputMode.TEXT:InputMode.EMOTICON);
         }
-        if (id == R.id.btn_file){
+        else if (id == R.id.btn_file){
             chatView.sendFile();
+        }
+        else if(id == R.id.btn_notify){
+            chatView.sendNotify();
         }
     }
 

@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="RelativeCarView">
+        <attr name="rcv_backgroundColor" format="color"/>
+        <attr name="rcv_elevation" format="dimension"/>
+        <attr name="rcv_elevationColor" format="color"/>
+        <attr name="rcv_radius" format="dimension"/>
+        <attr name="rcv_anim" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="TabIndicator">
+        <attr name="ti_checkedColor" format="color"/>
+        <attr name="ti_uncheckedColor" format="color"/>
+        <attr name="ti_indicatorColor" format="color"/>
+        <attr name="ti_textSize" format="dimension"/>
+        <attr name="ti_indicatorLength" format="dimension"/>
+        <attr name="ti_items" format="string"/>
+        <attr name="ti_itemMargin" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="TagsEditText">
+        <attr name="allowSpaceInTag" format="boolean"/>
+        <attr name="tagsTextColor" format="color"/>
+        <attr name="tagsTextSize" format="dimension"/>
+        <attr name="tagsBackground" format="integer"/>
+        <attr name="tagsCloseImageLeft" format="integer"/>
+        <attr name="tagsCloseImageRight" format="integer"/>
+        <attr name="tagsCloseImagePadding" format="dimension" />
+        <attr name="tagsPaddingLeft" format="dimension"/>
+        <attr name="tagsPaddingRight" format="dimension"/>
+        <attr name="tagsPaddingTop" format="dimension"/>
+        <attr name="tagsPaddingBottom" format="dimension"/>
+    </declare-styleable>
+
     <!-- 标题模板自定义属性 -->
     <declare-styleable name="TemplateTitle">
         <!-- 标题文案 -->

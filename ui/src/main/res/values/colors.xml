@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00B8A9</color>
+    <color name="colorPrimary">#1E86E4</color>
     <color name="colorPrimaryDark">#009989</color>
     <color name="colorPrimaryLight">#3ED1C3</color>
     <color name="colorAccent">#FFDE7D</color>
@@ -31,8 +31,7 @@
     <color name="btn_text_hover">#CCFFFFFF</color>
     <!--蒙版-->
     <color name="colorMask">#66000000</color>
-
-
+    <color name="main_text_color">#cc000000</color>
 
 
 </resources>
