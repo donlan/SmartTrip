@@ -25,25 +25,12 @@ public class COSPutObject extends AsyncTask<BizServer,Long,String>{
     private String resultStr;
     private CallBack<COSResult> callBack;
     private PUT_TYPE put_type;
-    public  enum PUT_TYPE{
-        SAMPLE(1,"简单文件上传模式"),
-        SLICE(2,"分片文件上传模式"),
-        LIST(3,"一键文件上传模式");
-        private int id;
-        private String desc;
-        PUT_TYPE(int id, String desc){
-            this.id = id;
-            this.desc = desc;
-        }
-        public String getDesc(){
-            return desc;
-        }
-    }
     public COSPutObject(PUT_TYPE put_type ,CallBack<COSResult> callBack){
         iUploadListenerHandler = new IUploadListenerHandler();
         this.callBack = callBack;
         this.put_type = put_type;
     }
+
     @Override
     protected String doInBackground(BizServer... bizServers) {
         switch (put_type){
@@ -67,7 +54,6 @@ public class COSPutObject extends AsyncTask<BizServer,Long,String>{
     @Override
     protected void onProgressUpdate(Long... values) {
     }
-
 
     /**
      * 简单文件上传
@@ -96,6 +82,7 @@ public class COSPutObject extends AsyncTask<BizServer,Long,String>{
         /** 发送请求：执行 */
         bizServer.getCOSClient().putObject(putObjectRequest);
     }
+
     /**
      * 分片上传 一般文件》20M,使用分片上传;
      */
@@ -124,6 +111,7 @@ public class COSPutObject extends AsyncTask<BizServer,Long,String>{
         bizServer.getCOSClient().putObject(putObjectRequest);
 
     }
+
     /**
      * 一键上传
      */
@@ -142,6 +130,22 @@ public class COSPutObject extends AsyncTask<BizServer,Long,String>{
         }
     }
 
+    public enum PUT_TYPE {
+        SAMPLE(1, "简单文件上传模式"),
+        SLICE(2, "分片文件上传模式"),
+        LIST(3, "一键文件上传模式");
+        private int id;
+        private String desc;
+
+        PUT_TYPE(int id, String desc) {
+            this.id = id;
+            this.desc = desc;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+    }
 
     protected class IUploadListenerHandler implements IUploadTaskListener{
 

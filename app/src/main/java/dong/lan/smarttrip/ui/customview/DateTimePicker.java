@@ -54,6 +54,21 @@ public class DateTimePicker extends AlertDialog {
     private CallBack callBack;
     private boolean isInit = false;
     private int index = 0;
+    private TimePicker.OnTimeChangedListener timeChangedListener = new TimePicker.OnTimeChangedListener() {
+        @Override
+        public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+            calendar.set(Calendar.HOUR, i);
+            calendar.set(Calendar.MINUTE, i1);
+        }
+    };
+    private DatePicker.OnDateChangedListener dateChangedListener = new DatePicker.OnDateChangedListener() {
+        @Override
+        public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
+            calendar.set(Calendar.YEAR, i);
+            calendar.set(Calendar.MONTH, i1);
+            calendar.set(Calendar.DATE, i2);
+        }
+    };
 
 
     public DateTimePicker(Context context, CallBack callBackListener) {
@@ -103,17 +118,13 @@ public class DateTimePicker extends AlertDialog {
         isInit = true;
     }
 
-
-
     public long timeOfHourAndMinute(){
         return calendar.get(Calendar.HOUR) * 3600000  + calendar.get(Calendar.MINUTE) * 6000;
     }
 
-
     public long timeOfYearDay(){
         return calendar.getTimeInMillis() - timeOfHourAndMinute();
     }
-
 
     @Override
     public void show() {
@@ -129,23 +140,6 @@ public class DateTimePicker extends AlertDialog {
             dateRb.setChecked(true);
         show();
     }
-
-
-    private TimePicker.OnTimeChangedListener timeChangedListener = new TimePicker.OnTimeChangedListener() {
-        @Override
-        public void onTimeChanged(TimePicker timePicker, int i, int i1) {
-            calendar.set(Calendar.HOUR, i);
-            calendar.set(Calendar.MINUTE, i1);
-        }
-    };
-    private DatePicker.OnDateChangedListener dateChangedListener = new DatePicker.OnDateChangedListener() {
-        @Override
-        public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
-            calendar.set(Calendar.YEAR, i);
-            calendar.set(Calendar.MONTH, i1);
-            calendar.set(Calendar.DATE, i2);
-        }
-    };
 
     public void reset(long minTime) {
         datePicker.setMinDate(minTime);

@@ -1,8 +1,6 @@
 package dong.lan.filecloud;
 
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.TextView;
 
 import com.tencent.cos.model.COSRequest;
 import com.tencent.cos.model.COSResult;

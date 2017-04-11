@@ -28,17 +28,17 @@ import java.util.List;
  */
 public class BizServer {
 
+    protected static final byte[] object = new byte[0];
     private static final String TAG = BizServer.class.getSimpleName();
+    public static BizServer instance;
     /**
      * cos的用户接口
      */
     protected COSClient cos;
-
     /**
      * cosclient 配置设置; 根据需要设置；
      */
     protected COSClientConfig config;
-
     /**
      * 设置园区；根据创建的cos空间时选择的园区
      * 华南园区：COSEndPoint.COS_GZ(已上线)
@@ -47,46 +47,34 @@ public class BizServer {
      * 此处Demo中选择了 华东园区：COSEndPoint.COS_SH用于测试
      */
     protected COSEndPoint cosEndPoint;
-
     /**
      * cos的appid
      */
     protected String appid = "1251826459";
-
     /**
      * appid的一个空间名称
      */
     protected String bucket = "lhyf";
-
     /**
      * 上传测试
      */
     protected String srcPath;
     protected boolean isSliceUpload = false;
     protected boolean checkSha = false;
-
     /**
      * 下载测试
      */
     protected String downloadUrl;
     protected String savePath;
-
     /**
      * 删除文件测试
      */
     protected String fileId;
-
-
     /**
      * 目录前缀测试
      */
     protected String prefix;
-
     private String path;
-
-    protected static final byte[] object = new byte[0];
-
-    public static BizServer instance;
     private List<String> listPath;
 
     private BizServer(Context context) {
@@ -130,20 +118,20 @@ public class BizServer {
         this.srcPath = srcPath;
     }
 
-    public void setSliceUpload(boolean sliceUpload) {
-        this.isSliceUpload = sliceUpload;
-    }
-
     public boolean getSliceUpload() {
         return isSliceUpload;
     }
 
-    public void setCheckSha(boolean checkSha) {
-        this.checkSha = checkSha;
+    public void setSliceUpload(boolean sliceUpload) {
+        this.isSliceUpload = sliceUpload;
     }
 
     public boolean getCheckSha() {
         return checkSha;
+    }
+
+    public void setCheckSha(boolean checkSha) {
+        this.checkSha = checkSha;
     }
 
     public List<String> getListPath() {
@@ -158,12 +146,12 @@ public class BizServer {
         return downloadUrl;
     }
 
-    public String getSavePath() {
-        return savePath;
-    }
-
     public void setDownloadUrl(String downloadUrl) {
         this.downloadUrl = downloadUrl;
+    }
+
+    public String getSavePath() {
+        return savePath;
     }
 
     public void setSavePath(String savePath) {
