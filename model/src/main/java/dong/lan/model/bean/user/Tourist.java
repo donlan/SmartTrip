@@ -1,8 +1,14 @@
 package dong.lan.model.bean.user;
 
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 
+import dong.lan.model.bean.travel.Travel;
 import dong.lan.model.features.IUserInfo;
 import dong.lan.model.features.ItemTextDisplay;
 import io.realm.RealmObject;
@@ -20,6 +26,7 @@ public class Tourist extends RealmObject implements IUserInfo,ItemTextDisplay {
 
     private String objId;   //后台表id(保存本地,方便操作)
     private User user;      //游客对用的用户信息
+    private Travel travel;
     private int status;     //用户当前状态
     private int role;       //游客在旅行中的角色
 
@@ -33,6 +40,28 @@ public class Tourist extends RealmObject implements IUserInfo,ItemTextDisplay {
         role = user.getRole();
     }
 
+    @Override
+    public void call(Context context) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.putExtra("tel", getUser().getPhone());
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void sms(Context context) {
+
+    }
+
+    public Travel getTravel() {
+        return travel;
+    }
+
+    public void setTravel(Travel travel) {
+        this.travel = travel;
+    }
 
     @Override
     public String getObjId() {

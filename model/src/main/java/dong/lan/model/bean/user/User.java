@@ -1,7 +1,12 @@
 package dong.lan.model.bean.user;
 
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 
 import com.github.promeg.pinyinhelper.Pinyin;
@@ -172,5 +177,21 @@ public class User extends RealmObject implements IUserInfo ,ItemTextDisplay {
     @Override
     public int getStatus() {
         return Config.STATUS_NORMAL;
+    }
+
+
+    @Override
+    public void call(Context context) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.putExtra("tel", getPhone());
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void sms(Context context) {
+
     }
 }

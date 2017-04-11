@@ -62,11 +62,12 @@ public class NoticeReply extends RealmObject implements INoticeReply{
 
     @Override
     public void call(Context context) {
-
+        getTourist().call(context);
     }
 
     @Override
     public void sms(Context context) {
-
+        getTourist().sms(context);
     }
+
 }

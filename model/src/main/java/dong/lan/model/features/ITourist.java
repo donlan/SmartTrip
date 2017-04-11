@@ -11,6 +11,9 @@ import dong.lan.model.permission.IRole;
 
 public interface ITourist extends IRole {
 
+    int STATUS_NORMAL = 0;
+    int STATUS_OFFLINE =1;
+
     IUser getUser();
 
     int getRole();

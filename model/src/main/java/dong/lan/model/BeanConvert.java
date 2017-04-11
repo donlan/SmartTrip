@@ -213,6 +213,7 @@ public final class BeanConvert {
         tourist.setRole(avoTourist.getRole());
         tourist.setStatus(avoTourist.getStatus());
         tourist.setUser(toUser(avoTourist.getOwner()));
+        tourist.setTravel(toTravel(avoTourist.getTravel()));
         return tourist;
     }
 
@@ -223,6 +224,7 @@ public final class BeanConvert {
         avoTourist.setOwner(toAvoUser(tourist.getUser()));
         avoTourist.setRole(tourist.getRole());
         avoTourist.setStatus(tourist.getStatus());
+        avoTourist.setTravel(toAvoTravel(tourist.getTravel()));
         return avoTourist;
     }
 

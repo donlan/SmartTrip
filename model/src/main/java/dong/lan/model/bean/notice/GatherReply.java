@@ -1,6 +1,10 @@
 package dong.lan.model.bean.notice;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 
 import dong.lan.model.bean.user.Tourist;
 import dong.lan.model.features.IGatherReply;
@@ -13,7 +17,7 @@ import io.realm.RealmObject;
  * description: SmartTrip
  */
 
-public class GatherReply extends RealmObject implements IGatherReply{
+public class GatherReply extends RealmObject implements IGatherReply {
 
     public String objId;
 
@@ -70,11 +74,11 @@ public class GatherReply extends RealmObject implements IGatherReply{
 
     @Override
     public void call(Context context) {
-
+        getTourist().call(context);
     }
 
     @Override
     public void sms(Context context) {
-
+        getTourist().sms(context);
     }
 }
