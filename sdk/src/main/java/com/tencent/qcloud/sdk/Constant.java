@@ -9,6 +9,6 @@ public class Constant {
     //sdk appid 由腾讯分配
     public static final int SDK_APPID = 1400014666;
 
-    public static final String BMOB_KEY ="85c5b6798e78235fe3a5e7c92a9bb713";
+    public static final String BMOB_KEY ="92965847d61bfe07b38b083a99bd70ed";
 
 }
