@@ -14,28 +14,42 @@ import com.avos.avoscloud.AVUser;
 public class AVOTourist extends AVObject {
 
 
-    public AVOUser getOwner(){
-        return super.getAVUser("owner",AVOUser.class);
+    public AVOUser getOwner() {
+        return super.getAVUser("owner", AVOUser.class);
     }
 
-    public void setOwner(AVOUser user){
-        super.put("owner",user);
+    public void setOwner(AVOUser user) {
+        super.put("owner", user);
     }
 
 
-    public int getRole(){
+    public AVOTravel getTravel() {
+        try {
+            return getAVObject("travel", AVOTravel.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void setTravel(AVOTravel travel) {
+        super.put("travel", true);
+    }
+
+    public int getRole() {
         return getInt("role");
     }
-    public void setRole(int role){
-        put("role",role);
+
+    public void setRole(int role) {
+        put("role", role);
     }
 
-    public int getStatus(){
+    public int getStatus() {
         return getInt("status");
     }
 
-    public void setStatus(int status){
-        put("status",status);
+    public void setStatus(int status) {
+        put("status", status);
     }
 
 

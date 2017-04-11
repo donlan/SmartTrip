@@ -118,12 +118,16 @@ public class AVOTravel extends AVObject {
         return getRelation("tourists");
     }
 
-    public void removeTourist(AVOTourist tourist) {
+
+    /*
+    仅用作关系查询,如果需要获取实际的游客信息请使用AVOTourist
+     */
+    public void removeTourist(AVOUser tourist) {
         getTourists().remove(tourist);
         this.saveInBackground();
     }
 
-    public void addTourist(AVOTourist tourist) {
+    public void addTourist(AVOUser tourist) {
         getTourists().add(tourist);
         this.saveInBackground();
     }
