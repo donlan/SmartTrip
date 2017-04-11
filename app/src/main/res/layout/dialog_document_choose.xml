@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/doc_level_parent"
+    android:padding="16dp">
+
+    <RadioButton
+        android:checked="true"
+        android:id="@+id/doc_level_guider"
+        android:text="@string/guider"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+    <RadioButton
+        android:id="@+id/doc_level_lingdui"
+        android:text="@string/lingdui"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <RadioButton
+        android:id="@+id/doc_level_youke"
+        android:text="@string/youke"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <RadioButton
+        android:id="@+id/doc_level_other"
+        android:text="@string/other"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+</RadioGroup>

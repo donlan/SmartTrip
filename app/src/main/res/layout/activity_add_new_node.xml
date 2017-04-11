@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/action_bar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country_city"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <EditText
+                    android:id="@+id/new_node_pick_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:hint="@string/pick_city_hint"
+                    android:textColor="@color/main_text_color" />
+            </LinearLayout>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location_coordinate"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <EditText
+                    android:id="@+id/new_node_pick_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:drawableRight="@drawable/location_grey"
+                    android:focusable="false"
+                    android:hint="@string/pick_location_hint"
+                    android:textColor="@color/main_text_color" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/arrived_time"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <TextView
+                    android:id="@+id/new_node_pick_arrived_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:drawableRight="@drawable/clock"
+                    android:hint="@string/set_arrived_time"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/desc_text_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transportation"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <RadioGroup
+                    android:id="@+id/new_node_trans_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/new_node_trans_plane"
+                        android:layout_width="@dimen/fab_size"
+                        android:layout_height="@dimen/fab_size"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/transport_tadio_bg"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/transport_plane"
+                        android:textColor="@drawable/transport_radio_text_color"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/new_node_trans_train"
+                        android:layout_width="@dimen/fab_size"
+                        android:layout_height="@dimen/fab_size"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/transport_tadio_bg"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/transport_train"
+                        android:textColor="@drawable/transport_radio_text_color"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/new_node_trans_free"
+                        android:layout_width="@dimen/fab_size"
+                        android:layout_height="@dimen/fab_size"
+                        android:background="@drawable/transport_tadio_bg"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="@string/transport_free"
+                        android:textColor="@drawable/transport_radio_text_color"
+                        android:textSize="18sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/new_node_trans_code_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/new_node_trans_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transportation"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <EditText
+                    android:id="@+id/new_node_trans_way_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:background="@null"
+                    android:textSize="@dimen/default_main_text_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/new_node_pick_leave_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="@string/pick_leave_city_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/level2_text_size" />
+
+                <ImageView
+                    android:id="@+id/new_node_trans_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/free" />
+
+                <TextView
+                    android:id="@+id/new_node_pick_arrived_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="@string/pick_arrived_city"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/level2_text_size" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/new_node_verify_leave_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/go_off_icon"
+                    android:gravity="center"
+                    android:hint="@string/leave_time_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/level2_text_size" />
+
+                <TextView
+                    android:id="@+id/new_node_pick_time_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <TextView
+                    android:id="@+id/new_node_verify_arrived_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/arrived_time_icon"
+                    android:gravity="center"
+                    android:hint="@string/arrived_time_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/level2_text_size" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stay_time"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <TextView
+                    android:id="@+id/new_node_set_stay_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:hint="@string/arrived_remain_time_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remain_time"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <TextView
+                    android:id="@+id/new_node_set_remain_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:hint="@string/new_node_remain_time_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/node_intro"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+
+                <EditText
+                    android:id="@+id/new_node_intro_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:hint="@string/new_node_remark_hint"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/default_main_text_size" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

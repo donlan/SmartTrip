@@ -26,8 +26,9 @@ import java.util.Collections;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.FriendProfile;
-import dong.lan.smarttrip.model.FriendshipInfo;
+import dong.lan.smarttrip.model.im.FriendProfile;
+import dong.lan.smarttrip.model.im.FriendshipInfo;
+import dong.lan.smarttrip.ui.im.ChatActivity;
 
 public class ProfileActivity extends FragmentActivity implements FriendshipManageView,  View.OnClickListener {
 

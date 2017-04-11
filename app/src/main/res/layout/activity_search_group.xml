@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tencent.qcloud.timchat.ui.SearchGroupActivity">
+    >
     <LinearLayout
         android:id="@id/title"
         android:layout_width="match_parent"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         android:layout_height="46dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_search_inputbox"
+            android:background="@null"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -30,10 +30,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="8dp"
-                android:textCursorDrawable="@color/black"
+                android:textCursorDrawable="@color/white"
                 android:hint="@string/search_group_hint"
-                android:textColorHint="@color/text_gray1"
-                android:textColor="@color/black"
+                android:textColorHint="@color/line"
+                android:textColor="@color/white"
                 android:imeOptions="actionSearch"
                 android:singleLine="true"
                 android:textSize="14sp"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/text_blue1"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:text="@string/search_cancel" />
 

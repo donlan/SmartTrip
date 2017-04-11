@@ -10,10 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.tencent.qcloud.ui.CircleImageView;
+import com.tencent.qcloud.ui.RelativeCarView;
+
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.Message;
+import dong.lan.smarttrip.model.im.Message;
 
 /**
  * 聊天界面adapter
@@ -56,17 +59,25 @@ public class ChatAdapter extends ArrayAdapter<Message> {
             viewHolder.sender = (TextView) view.findViewById(R.id.sender);
             viewHolder.rightDesc = (TextView) view.findViewById(R.id.rightDesc);
             viewHolder.systemMessage = (TextView) view.findViewById(R.id.systemMessage);
+            viewHolder.leftAvatar = (CircleImageView) view.findViewById(R.id.leftAvatar);
+            viewHolder.rightAvatar = (CircleImageView) view.findViewById(R.id.rightAvatar);
+            viewHolder.noticePanel = (RelativeCarView) view.findViewById(R.id.messageCard);
+            viewHolder.noticeIcon = (ImageView) view.findViewById(R.id.messageTagIcon);
+            viewHolder.noticeTittle = (TextView) view.findViewById(R.id.messageTittle);
+            viewHolder.noticeContent = (TextView) view.findViewById(R.id.messageContent);
             view.setTag(viewHolder);
         }
         if (position < getCount()){
             final Message data = getItem(position);
-            data.showMessage(viewHolder, getContext());
+            if (data != null) {
+                data.showMessage(viewHolder, getContext());
+            }
         }
         return view;
     }
 
 
-    public class ViewHolder{
+    public static class ViewHolder{
         public RelativeLayout leftMessage;
         public RelativeLayout rightMessage;
         public RelativeLayout leftPanel;
@@ -76,5 +87,11 @@ public class ChatAdapter extends ArrayAdapter<Message> {
         public TextView sender;
         public TextView systemMessage;
         public TextView rightDesc;
+        public CircleImageView leftAvatar;
+        public CircleImageView rightAvatar;
+        public RelativeCarView noticePanel;
+        public ImageView noticeIcon;
+        public TextView noticeTittle;
+        public TextView noticeContent;
     }
 }

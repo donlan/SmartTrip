@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/load_bg_2"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/load_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/load_logo" />
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/load_logo"
+        android:src="@drawable/load_text" />
+
+
+    <dong.lan.smarttrip.ui.customview.LabelTextView
+        android:id="@+id/start_app"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:text="开启"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        app:bg_color="#eeffffff"
+        app:radius="25dp"
+        app:shadowColor="@color/background_gray3"
+        app:shadowRadius="1dp" />
+</RelativeLayout>

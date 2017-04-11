@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00B8A9</color>
-    <color name="colorPrimaryDark">#009989</color>
+    <color name="colorPrimary">#1E86E4</color>
+    <color name="colorPrimaryDark">#0F73CB</color>
     <color name="colorPrimaryLight">#3ED1C3</color>
-    <color name="colorAccent">#FFDE7D</color>
+    <color name="colorAccent">#FFF</color>
     <color name="colorAccentLight">#F8F3D4</color>
     <color name="colorAccentDark">#F6416C</color>
     <color name="transparent">#00000000</color>
@@ -21,7 +21,7 @@
     <color name="text_blue1">#1173CB</color>
     <color name="text_blue2">#1173CA</color>
     <color name="panel_black">#25272A</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="btn_red">#D63F41</color>
     <color name="btn_red_hover">#E8484B</color>
@@ -31,8 +31,17 @@
     <color name="btn_text_hover">#CCFFFFFF</color>
     <!--蒙版-->
     <color name="colorMask">#66000000</color>
-
-
+    <color name="text_black">#ea000000</color>
+    <color name="text_black_1">#dd000000</color>
+    <color name="main_text_color">#cc000000</color>
+    <color name="desc_text_color">#99000000</color>
+    <color name="checkroll_yes">#00ee00</color>
+    <color name="checkroll_no">#aa0000</color>
+    <color name="md_white_1000">#fff</color>
+    <color name="travel_item_text_color">#ffffff</color>
+    <color name="white_aa">#aaffffff</color>
+    <color name="chat_right_text_color">#111111</color>
+    <color name="chat_left_text_color">#111111</color>
 
 
 </resources>

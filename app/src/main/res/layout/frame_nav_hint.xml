@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect_white_img"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <dong.lan.smarttrip.ui.customview.LabelTextView
+        android:id="@+id/travel_nav_number"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="12dp"
+        android:gravity="center"
+        android:text="13"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:bg_color="#f57f23"
+        app:radius="30dp" />
+
+    <TextView
+        android:id="@+id/travel_nav_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/travel_nav_number"
+        android:text="天安门广场"
+        android:textColor="@color/main_text_color"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/travel_nav_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:text="12:34"
+        android:textColor="@color/main_text_color"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/travel_nav_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/travel_nav_position"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/travel_nav_number"
+        android:text="距离1.2公里 步行约需要15分钟\n当前时间比较宽裕"
+        android:textColor="@color/main_text_color"
+        android:textSize="18sp" />
+
+</RelativeLayout>

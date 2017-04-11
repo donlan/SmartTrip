@@ -5,9 +5,46 @@
     android:background="#cccccc"
     >
     <ImageView
+        android:id="@+id/splash_image"
+        android:adjustViewBounds="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/start_image" />
+        android:src="@drawable/load1" />
+
+    <RelativeLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/splash_bottom_container"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:minHeight="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/splash_logo_image"
+            android:src="@drawable/logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <ImageView
+            android:id="@+id/splash_logo_text"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_toRightOf="@id/splash_logo_image"
+            android:src="@drawable/logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:text="生活不止有眼前"
+            android:layout_below="@id/splash_logo_text"
+            android:layout_toRightOf="@id/splash_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

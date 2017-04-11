@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <dong.lan.smarttrip.ui.customview.TabIndexRecycleView
+        android:id="@+id/travel_map_line_index_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.baidu.mapapi.MapView
+        android:id="@+id/travel_map_line_mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

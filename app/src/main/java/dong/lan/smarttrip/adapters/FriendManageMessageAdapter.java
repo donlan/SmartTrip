@@ -18,7 +18,7 @@ import com.tencent.qcloud.ui.CircleImageView;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.FriendFuture;
+import dong.lan.smarttrip.model.im.FriendFuture;
 
 /**
  * 好友关系链管理消息adapter

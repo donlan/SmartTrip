@@ -49,7 +49,6 @@ public class CustomMessageHandler {
     }
 
     public void handler(TIMMessage message) {
-
         if (message != null && message.getElement(0).getType() == TIMElemType.Custom) {
             TIMCustomElem elem = (TIMCustomElem) message.getElement(0);
             String data = null;

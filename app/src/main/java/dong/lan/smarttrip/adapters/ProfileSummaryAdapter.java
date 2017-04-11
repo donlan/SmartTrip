@@ -13,7 +13,7 @@ import com.tencent.qcloud.ui.CircleImageView;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.ProfileSummary;
+import dong.lan.smarttrip.model.im.ProfileSummary;
 
 /**
  * 好友或群等资料摘要列表的adapter
@@ -52,6 +52,7 @@ public class ProfileSummaryAdapter extends ArrayAdapter<ProfileSummary> {
             view.setTag(viewHolder);
         }
         ProfileSummary data = getItem(position);
+
         viewHolder.avatar.setImageResource(data.getAvatarRes());
         viewHolder.name.setText(data.getName());
         return view;

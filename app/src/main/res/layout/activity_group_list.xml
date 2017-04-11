@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="dong.lan.smarttrip.ui.GroupListActivity">
+    tools:context="dong.lan.smarttrip.ui.im.GroupListActivity">
     <com.tencent.qcloud.ui.TemplateTitle
         android:id="@+id/groupListTitle"
         android:layout_width="match_parent"

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+<!--
+    <RadioGroup
+        android:id="@+id/trips_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/trips_concern"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/tap_left_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/trip_tap_button_padding"
+            android:paddingRight="@dimen/trip_tap_button_padding"
+            android:text="@string/concern"
+            android:textColor="@drawable/trip_tap_text_color"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/trips_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/tap_center_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="@dimen/trip_tap_button_padding"
+            android:paddingRight="@dimen/trip_tap_button_padding"
+            android:text="@string/hot"
+            android:textColor="@drawable/trip_tap_text_color"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/trips_new"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/tap_right_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="@dimen/trip_tap_button_padding"
+            android:paddingRight="@dimen/trip_tap_button_padding"
+            android:text="@string/newest"
+            android:textColor="@drawable/trip_tap_text_color"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+-->
+    <com.tencent.qcloud.ui.TabIndicator
+        android:id="@+id/trips_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingTop="12dp"
+        app:ti_checkedColor="@color/white"
+        app:ti_indicatorColor="@color/white"
+        app:ti_indicatorLength="16dp"
+        app:ti_itemMargin="40dp"
+        app:ti_items="关注 热门 最新"
+        app:ti_textSize="20sp"
+        app:ti_uncheckedColor="@color/background_gray4" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/trips_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/trips_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

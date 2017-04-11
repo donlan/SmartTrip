@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/item_travel_info_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tag" />
+
+    <TextView
+        android:id="@+id/item_travel_info_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="@color/main_text_color"
+        android:textSize="@dimen/default_main_text_size" />
+
+    <TextView
+        android:id="@+id/item_travel_info_time"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawablePadding="4dp"
+        android:drawableRight="@drawable/arrow_right_grey_48"
+        android:gravity="center_vertical"
+        android:text="23分钟前"
+        android:textColor="@color/desc_text_color"
+        android:textSize="@dimen/desc_text_size" />
+
+
+</LinearLayout>

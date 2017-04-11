@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.ui.ManageFriendGroupActivity;
+import dong.lan.smarttrip.ui.im.ManageFriendGroupActivity;
 
 /**
  *

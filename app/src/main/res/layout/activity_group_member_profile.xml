@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background"
-    tools:context="dong.lan.smarttrip.ui.GroupMemberProfileActivity">
+    tools:context="dong.lan.smarttrip.ui.im.GroupMemberProfileActivity">
     <com.tencent.qcloud.ui.TemplateTitle
         android:id="@+id/GroupMemTitle"
         android:layout_width="match_parent"

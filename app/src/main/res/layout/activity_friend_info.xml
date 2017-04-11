@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <android.support.v4.widget.CircleImageView
+            android:id="@+id/friend_info_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="end|center_vertical"
+            android:src="@drawable/head2" />
+
+        <TextView
+            android:id="@+id/friend_info_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/friend_info_avatar"
+            android:text="Cemois"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/friend_info_username"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/friend_info_avatar"
+            android:text="LU号：4321741327"
+            android:textColor="@color/desc_text_color"
+            android:textSize="@dimen/desc_text_size" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/background_gray4" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/set_notename"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+        <TextView
+            android:id="@+id/friend_info_set_notename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/arrow_right_grey_48"
+            android:gravity="end"
+            android:text="刘德华"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+    </FrameLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/region"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+        <TextView
+            android:id="@+id/friend_info_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/arrow_right_grey_48"
+            android:gravity="end"
+            android:text="未填写"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/personal_signature"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+        <TextView
+            android:id="@+id/me_info_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginLeft="100dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/arrow_right_grey_48"
+            android:gravity="end"
+            android:text="生活不知眼前的苟且，还有诗和远方"
+            android:textColor="@color/desc_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+
+    <dong.lan.smarttrip.ui.customview.LabelTextView
+        android:id="@+id/fiend_info_send_msg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/send_message"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_main_text_size"
+        app:bg_color="@color/colorPrimary"
+        app:radius="4dp" />
+
+</LinearLayout>

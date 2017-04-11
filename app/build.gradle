@@ -1,15 +1,27 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.antfortune.freeline'
+apply plugin: 'realm-android'
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "dong.lan.smarttrip"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -23,24 +35,47 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml'
+    }
+
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile project(':presentation')
     compile project(':ui')
-    compile files('libs/baidumapapi_base_v4_0_0.jar')
-    compile files('libs/baidumapapi_cloud_v4_0_0.jar')
-    compile files('libs/baidumapapi_map_v4_0_0.jar')
-    compile files('libs/baidumapapi_radar_v4_0_0.jar')
-    compile files('libs/baidumapapi_search_v4_0_0.jar')
-    compile files('libs/baidumapapi_util_v4_0_0.jar')
-    compile files('libs/locSDK_6.13.jar')
-    compile files('libs/BmobSDK_3.5.1_20160719.jar')
-    compile files('libs/gson-2.6.2.jar')
-    compile files('libs/okhttp-3.3.1.jar')
-    compile files('libs/okio-1.7.0.jar')
-    compile files('libs/rxandroid-1.2.0.jar')
-    compile files('libs/rxjava-1.1.6.jar')
+    compile project(':presentation')
+    compile project(':libzxing')
+    compile project(':RTPermission')
+    compile project(':time-duration-picker')
+    compile 'com.alibaba:arouter-api:1.0.7'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.0.1'
+
+    compile project(':model')
+    compile project(":weather")
 }

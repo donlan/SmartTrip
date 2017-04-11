@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/me_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我不是刘德华"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/me_identifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/me_username"
+            android:layout_marginTop="4dp"
+            android:text="YF号：1000001"
+            android:textColor="@color/text_gray1"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/me_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/me_identifier"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/qrcode" />
+        <TextView
+            android:id="@+id/me_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/me_qrcode"
+            android:layout_marginTop="12dp"
+            android:text="个性签名"
+            android:textColor="@color/text_gray1"
+            android:textSize="16sp" />
+
+
+
+        <com.tencent.qcloud.ui.CircleImageView
+            android:minWidth="120dp"
+            android:minHeight="120dp"
+            android:id="@+id/me_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/head2" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/me_signature"
+            android:layout_marginTop="2dp"
+            android:layout_toLeftOf="@id/me_avatar"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/background_gray2" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_travels"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/me"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="我的游历"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/collect"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="收藏"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_friends"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/friends"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="好友"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/background_gray2" />
+
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/setting"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="设置"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/background_gray2" />
+
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/feedback"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="意见反馈"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_about"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/about"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="关于路和远方"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/background_gray2" />
+
+            <TextView
+                android:textColor="@color/text_black"
+                android:id="@+id/me_logout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_view_height"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/logout"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/arrow_right_grey_48"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="退出"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 
 import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.ui.im.BlackListActivity;
+import dong.lan.smarttrip.ui.im.MessageNotifySettingActivity;
 
 /**
  * 设置页面
@@ -69,7 +71,7 @@ public class SettingFragment extends Fragment implements FriendInfoView{
                         @Override
                         public void onSuccess() {
                             if (getActivity() != null && getActivity() instanceof HomeActivity){
-                                ((HomeActivity) getActivity()).logout();
+                                //((HomeActivity) getActivity()).logout();
                             }
                         }
                     });

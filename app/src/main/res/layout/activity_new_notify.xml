@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/action_bar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_gray1"
+        android:padding="12dp"
+        android:text="@string/using_notify"
+        android:textSize="18sp" />
+
+    <dong.lan.smarttrip.ui.customview.TagCloudView
+        android:id="@+id/new_notify_tag_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_gray1"
+        android:padding="12dp"
+        android:text="@string/new_notify"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notify_content"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+
+        <EditText
+            android:id="@+id/new_notify_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/set_notify_content_hint"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/desc_text_color"
+            android:textSize="@dimen/desc_text_size" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notify_time"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+
+        <TextView
+            android:id="@+id/new_notify_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/clock"
+            android:gravity="center_vertical"
+            android:hint="@string/pick_notify_time_hint"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/desc_text_color"
+            android:textSize="@dimen/desc_text_size" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_notify_level"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/default_main_text_size" />
+
+        <android.support.v7.view.menu.ExpandedMenuView
+            android:id="@+id/new_notify_level"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@color/line"
+            android:dividerHeight="1dp"
+            android:drawSelectorOnTop="true" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/line" />
+
+
+</LinearLayout>

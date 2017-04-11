@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_bar_travel"
+        android:icon="@drawable/bottom_bar_me"
+        android:title="@string/home_travels_tab" />
+
+    <item
+        android:id="@+id/bottom_bar_package"
+        android:icon="@drawable/bottom_bar_package"
+        android:title="@string/home_travels_tab" />
+
+    <item
+        android:id="@+id/bottom_bar_trip"
+        android:icon="@drawable/bottom_bar_trip"
+        android:title="@string/home_travels_tab" />
+    <item
+        android:id="@+id/bottom_bar_me"
+        android:icon="@drawable/bottom_bar_me"
+        android:title="@string/home_travels_tab" />
+</menu>

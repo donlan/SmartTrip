@@ -7,7 +7,7 @@ import android.util.Log;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import dong.lan.smarttrip.MyApplication;
+import dong.lan.smarttrip.App;
 
 /**
  * 媒体播放工具
@@ -70,7 +70,7 @@ public class MediaUtil {
     }
 
     public long getDuration(String path){
-        player = MediaPlayer.create(MyApplication.getContext(), Uri.parse(path));
+        player = MediaPlayer.create(App.myApp(), Uri.parse(path));
         return player.getDuration();
     }
 

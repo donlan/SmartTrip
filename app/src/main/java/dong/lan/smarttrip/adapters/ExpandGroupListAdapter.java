@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.FriendProfile;
+import dong.lan.smarttrip.model.im.FriendProfile;
 
 /**
  * 分组列表Adapters

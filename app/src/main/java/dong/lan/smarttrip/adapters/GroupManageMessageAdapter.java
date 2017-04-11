@@ -19,8 +19,8 @@ import com.tencent.qcloud.ui.CircleImageView;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.GroupFuture;
-import dong.lan.smarttrip.model.UserInfo;
+import dong.lan.smarttrip.model.im.GroupFuture;
+import com.tencent.qcloud.presentation.business.UserInfo;
 
 /**
  * 群管理消息adapter

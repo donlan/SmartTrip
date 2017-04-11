@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/item_trip_detail_time_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:text="1分钟前"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/item_trip_detail_seq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:text="第x个足迹"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/item_trip_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/item_trip_detail_time_desc"
+        android:src="@drawable/demo_image1" />
+
+
+    <TextView
+
+        android:id="@+id/item_trip_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/item_trip_detail_image"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="4dp"
+        android:drawableLeft="@drawable/comment"
+        android:drawablePadding="10dp"
+        android:text="754"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/item_trip_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_trip_detail_image"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_toLeftOf="@id/item_trip_comment"
+        android:drawableLeft="@drawable/like"
+        android:drawablePadding="10dp"
+        android:text="345"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/notice_parent"
+    android:layout_width="match_parent"
+    app:ios="true"
+    android:layout_height="match_parent">
+
+
+
+    <com.tencent.qcloud.ui.RelativeCarView
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/notice_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:tint="@color/btn_blue"
+            android:layout_margin="12dp"
+            android:id="@+id/notice_type_iocn"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:textSize="18sp"
+            android:id="@+id/notice_content"
+            android:layout_toRightOf="@id/notice_type_iocn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/notice_content"
+            android:layout_toRightOf="@id/notice_type_iocn"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:id="@+id/notice_extras"
+            android:layout_below="@id/notice_content"
+            android:layout_toRightOf="@id/notice_type_iocn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.tencent.qcloud.ui.RelativeCarView>
+
+    <ImageButton
+        android:id="@+id/notice_delete"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:foregroundGravity="center"
+        android:background="@null"
+        android:src="@drawable/delete_red_96"
+        android:scaleType="fitCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

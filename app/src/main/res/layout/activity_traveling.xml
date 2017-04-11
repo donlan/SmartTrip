@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--
+        <RadioGroup
+            android:id="@+id/traveling_group"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/traveling_conversation"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/tap_left_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/trip_tap_button_padding"
+                android:paddingRight="@dimen/trip_tap_button_padding"
+                android:text="@string/convesation"
+                android:textColor="@drawable/trip_tap_text_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/traveling_team_line"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/tap_center_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="@dimen/trip_tap_button_padding"
+                android:paddingRight="@dimen/trip_tap_button_padding"
+                android:text="@string/team_line"
+                android:textColor="@drawable/trip_tap_text_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/traveling_info"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/tap_right_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="@dimen/trip_tap_button_padding"
+                android:paddingRight="@dimen/trip_tap_button_padding"
+                android:text="@string/travel_info"
+                android:textColor="@drawable/trip_tap_text_color"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+
+
+        -->
+    <com.tencent.qcloud.ui.TabIndicator
+        android:id="@+id/traveling_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingTop="12dp"
+        app:ti_checkedColor="@color/white"
+        app:ti_indicatorColor="@color/white"
+        app:ti_indicatorLength="16dp"
+        app:ti_itemMargin="20dp"
+        app:ti_items="会话 团队路线 旅行信息"
+        app:ti_textSize="20sp"
+        app:ti_uncheckedColor="@color/background_gray4" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="dong.lan.smarttrip.ui.GroupProfileActivity">
+    tools:context="dong.lan.smarttrip.ui.im.GroupProfileActivity">
     <com.tencent.qcloud.ui.TemplateTitle
         android:id="@+id/chat_title"
         android:layout_width="match_parent"

@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.tencent.qcloud.timchat.ui.ApplyGroupActivity">
-    <com.tencent.qcloud.ui.TemplateTitle
-        android:id="@+id/apply_group_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        app:titleText="@string/chat_setting_add"
-        app:canBack="true" />
+    android:orientation="vertical">
+
+    <include layout="@layout/action_bar" />
+
     <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
         android:id="@+id/description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rect_stroke_8"
+        android:hint="加入旅行的理由"
+        android:minHeight="45dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp" />
+
+    <dong.lan.smarttrip.ui.customview.LabelTextView
         android:id="@+id/btnSend"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_positive_btn"
+        android:gravity="center"
+        android:text="发送"
         android:textColor="@color/text_btn"
         android:textSize="18sp"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="发送"/>
+        app:bg_color="@color/colorPrimary"
+        app:radius="4dp" />
 </LinearLayout>

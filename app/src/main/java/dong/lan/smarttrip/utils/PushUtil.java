@@ -14,11 +14,11 @@ import com.tencent.qcloud.presentation.event.MessageEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-import dong.lan.smarttrip.MyApplication;
+import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.CustomMessage;
-import dong.lan.smarttrip.model.Message;
-import dong.lan.smarttrip.model.MessageFactory;
+import dong.lan.smarttrip.model.im.CustomMessage;
+import dong.lan.smarttrip.model.im.Message;
+import dong.lan.smarttrip.model.im.MessageFactory;
 import dong.lan.smarttrip.ui.HomeActivity;
 
 /**
@@ -55,12 +55,12 @@ public class PushUtil implements Observer {
         if (message == null) return;
         senderStr = message.getSender();
         contentStr = message.getSummary();
-        NotificationManager mNotificationManager = (NotificationManager) MyApplication.getContext().getSystemService(MyApplication.getContext().NOTIFICATION_SERVICE);
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MyApplication.getContext());
-        Intent notificationIntent = new Intent(MyApplication.getContext(), HomeActivity.class);
+        NotificationManager mNotificationManager = (NotificationManager) App.myApp().getSystemService(App.myApp().NOTIFICATION_SERVICE);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(App.myApp());
+        Intent notificationIntent = new Intent(App.myApp(), HomeActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent intent = PendingIntent.getActivity(MyApplication.getContext(), 0,
+        PendingIntent intent = PendingIntent.getActivity(App.myApp(), 0,
                 notificationIntent, 0);
         mBuilder.setContentTitle(senderStr)//设置通知栏标题
                 .setContentText(contentStr)
@@ -80,7 +80,7 @@ public class PushUtil implements Observer {
     }
 
     public void reset(){
-        NotificationManager notificationManager = (NotificationManager)MyApplication.getContext().getSystemService(MyApplication.getContext().NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) App.myApp().getSystemService(App.myApp().NOTIFICATION_SERVICE);
         notificationManager.cancel(pushId);
     }
 

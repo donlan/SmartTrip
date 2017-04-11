@@ -3,5 +3,13 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_size">60dp</dimen>
+    <dimen name="trip_tap_button_padding">30dp</dimen>
+    <dimen name="default_main_text_size">18sp</dimen>
+    <dimen name="desc_text_size">16sp</dimen>
+    <dimen name="list_avatar_size">50dp</dimen>
+    <dimen name="new_travel_lable_width">90dp</dimen>
+    <dimen name="level2_text_size">16sp</dimen>
+    <dimen name="item_view_height">50dp</dimen>
 
 </resources>

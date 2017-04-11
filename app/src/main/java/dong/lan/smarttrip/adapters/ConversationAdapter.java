@@ -12,8 +12,8 @@ import com.tencent.qcloud.ui.CircleImageView;
 import java.util.List;
 
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.model.Conversation;
-import dong.lan.smarttrip.utils.TimeUtil;
+import dong.lan.smarttrip.model.im.Conversation;
+import dong.lan.model.utils.TimeUtil;
 
 /**
  * 会话界面adapter

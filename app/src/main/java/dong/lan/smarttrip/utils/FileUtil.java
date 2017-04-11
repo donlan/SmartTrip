@@ -1,7 +1,6 @@
 package dong.lan.smarttrip.utils;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,15 +11,17 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.webkit.MimeTypeMap;
 
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import dong.lan.smarttrip.MyApplication;
+import dong.lan.smarttrip.App;
 
 /**
  * 文件工具类
@@ -29,13 +30,86 @@ public class FileUtil {
 
     private static final String TAG = "FileUtil";
     private static String pathDiv = "/";
-    private static File cacheDir = !isExternalStorageWritable()? MyApplication.getContext().getFilesDir(): MyApplication.getContext().getExternalCacheDir();
+    private static File cacheDir = !isExternalStorageWritable()? App.myApp().getFilesDir(): App.myApp().getExternalCacheDir();
 
     private FileUtil() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
+    public static void byte2File(byte[] buf, String filePath, String fileName)
+    {
+        BufferedOutputStream bos = null;
+        FileOutputStream fos = null;
+        File file = null;
+        try
+        {
+            File dir = new File(filePath);
+            if (!dir.exists() && dir.isDirectory())
+            {
+                dir.mkdirs();
+            }
+            file = new File(filePath + File.separator + fileName);
+            fos = new FileOutputStream(file);
+            bos = new BufferedOutputStream(fos);
+            bos.write(buf);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (bos != null)
+            {
+                try
+                {
+                    bos.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            if (fos != null)
+            {
+                try
+                {
+                    fos.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
+    public static byte[] File2byte(String filePath)
+    {
+        byte[] buffer = null;
+        try
+        {
+            File file = new File(filePath);
+            FileInputStream fis = new FileInputStream(file);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] b = new byte[1024];
+            int n;
+            while ((n = fis.read(b)) != -1)
+            {
+                bos.write(b, 0, n);
+            }
+            fis.close();
+            bos.close();
+            buffer = bos.toByteArray();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return buffer;
+    }
 
     /**
      * 创建临时文件
@@ -125,7 +199,7 @@ public class FileUtil {
      */
     public static boolean createFile(byte[] data, String fileName, String type){
         if (isExternalStorageWritable()){
-            File dir = MyApplication.getContext().getExternalFilesDir(type);
+            File dir = App.myApp().getExternalFilesDir(type);
             if (dir != null){
                 File f = new File(dir, fileName);
                 try{
