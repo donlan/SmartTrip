@@ -109,5 +109,7 @@ public interface ChatView extends MvpView {
      */
     void showDraft(TIMMessageDraft draft);
 
+    void sendNotify();
+
 
 }

@@ -53,6 +53,7 @@ public class FriendshipEvent extends Observable implements TIMFriendshipProxyLis
         Log.d(TAG, "OnAddFriends");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.ADD, list));
+
     }
 
     @Override
