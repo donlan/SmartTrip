@@ -124,11 +124,12 @@ public class SmsRegisterService {
         // 最终注册成功，接下来可以引导用户进行短信登录
         @Override
         public void OnSmsRegCommitSuccess(TLSUserInfo userInfo) {
-            Util.showToast(context, "短信注册成功！");
+            Util.showToast(context, "短信注册成功,为你自动登录中...");
             Intent intent = new Intent(context, HostLoginActivity.class);
             intent.putExtra(Constants.EXTRA_SMS_REG, Constants.SMS_REG_SUCCESS);
             intent.putExtra(Constants.COUNTRY_CODE, countryCode);
             intent.putExtra(Constants.PHONE_NUMBER, phoneNumber);
+            intent.putExtra(Constants.EXTRA_FROM_REGISTER,true);
             intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
             context.startActivity(intent);
             ((Activity) context).finish();

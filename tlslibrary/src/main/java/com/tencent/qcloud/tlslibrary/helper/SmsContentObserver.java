@@ -54,10 +54,6 @@ public class SmsContentObserver extends ContentObserver {
             editText.setText(getDynamicPassword(smsBody));
 
         }
-        // 在用managedQuery的时候，不能主动调用close()方法, 否则在Android 4.0+的系统上, 会发生崩溃
-        if (Build.VERSION.SDK_INT < 14) {
-            cursor.close();
-        }
     }
 
     /**

@@ -1,7 +1,10 @@
 package com.tencent.qcloud.tlslibrary.service;
 
 /**
- * Created by dgy on 15/8/13.
+ * Created by 梁桂栋 on 15/8/13 ： 下午7:35.
+ * Email:       760625325@qq.com
+ * GitHub:      github.com/donlan
+ * description: SmartTrip
  */
 public class Constants {
 
@@ -102,6 +105,8 @@ public class Constants {
     public final static String EXTRA_THIRDAPP_CLASS_NAME_FAIL = "com.tencent.tls.THIRDAPP_CLASS_NAME_FAIL";
 
     public final static String EXTRA_IMG_CHECKCODE = "com.tencent.tls.EXTRA_IMG_CHECKCODE";
+    public static final String EXTRA_FROM_REGISTER = "login_from_register";
+    public static final String EXTRA_FROM_LOGIN = "from_login";
 
     // 通过<包名，完整类名>的形式指定登录成功或失败时需要跳转的界面
     public static String thirdappPackageNameSucc;

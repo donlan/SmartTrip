@@ -3,6 +3,7 @@ package com.tencent.qcloud.tlslibrary.service;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -122,8 +123,8 @@ public class SmsLoginService {
         // 登录成功了，在这里可以获取用户数据
         @Override
         public void OnSmsLoginSuccess(TLSUserInfo userSigInfo) {
-            Util.showToast(context, "短信登录成功");
-            TLSService.getInstance().setLastErrno(0);
+            Util.showToast(context, "登录成功");
+            TLSService.setLastErrno(0);
             SmsLoginService.this.jumpToSuccActivity();
         }
 
@@ -132,7 +133,7 @@ public class SmsLoginService {
         @Override
         public void OnSmsLoginFail(TLSErrInfo errInfo) { // 短信登录失败
             Util.notOK(context, errInfo);
-            TLSService.getInstance().setLastErrno(-1);
+            TLSService.setLastErrno(-1);
             SmsLoginService.this.jumpToFailActivity();
         }
 
@@ -144,23 +145,25 @@ public class SmsLoginService {
         }
     }
 
-    void jumpToSuccActivity() {
+    private void jumpToSuccActivity() {
         String thirdappPackageNameSucc = Constants.thirdappPackageNameSucc;
         String thirdappClassNameSucc = Constants.thirdappClassNameSucc;
 
         Intent intent = new Intent();
+        intent.putExtra(Constants.EXTRA_FROM_LOGIN,((Activity)context).getIntent().getBooleanExtra(Constants.EXTRA_FROM_REGISTER,false));
         intent.putExtra(Constants.EXTRA_LOGIN_WAY, Constants.SMS_LOGIN);
         intent.putExtra(Constants.EXTRA_SMS_LOGIN, Constants.SMS_LOGIN_SUCCESS);
+        intent.putExtra(Constants.EXTRA_FROM_LOGIN,true);
         if (thirdappPackageNameSucc != null && thirdappClassNameSucc != null) {
             intent.setClassName(thirdappPackageNameSucc, thirdappClassNameSucc);
-            ((Activity) context).startActivity(intent);
+            context.startActivity(intent);
         } else {
             ((Activity) context).setResult(Activity.RESULT_OK, intent);
         }
         ((Activity) context).finish();
     }
 
-    void jumpToFailActivity() {
+    private void jumpToFailActivity() {
         String thirdappPackageNameFail = Constants.thirdappPackageNameFail;
         String thirdappClassNameFail = Constants.thirdappClassNameFail;
 
@@ -169,7 +172,7 @@ public class SmsLoginService {
         intent.putExtra(Constants.EXTRA_SMS_LOGIN, Constants.SMS_LOGIN_FAIL);
         if (thirdappPackageNameFail != null && thirdappClassNameFail != null) {
             intent.setClassName(thirdappPackageNameFail, thirdappClassNameFail);
-            ((Activity) context).startActivity(intent);
+            context.startActivity(intent);
             ((Activity) context).finish();
         }
     }

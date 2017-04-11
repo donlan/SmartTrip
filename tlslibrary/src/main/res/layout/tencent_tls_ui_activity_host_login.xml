@@ -4,20 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    app:backgroundImg="@drawable/briefing_goal_weather_bg">
-
-    <RelativeLayout
-        android:id="@+id/head"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/transparent">
-
-        <TextView
-            style="@style/tencent_tls_ui_titleFontStyle"
-            android:text="@string/tencent_tls_ui_hostLoginTitle" />
-
-    </RelativeLayout>
+    app:backgroundImg="@drawable/gaosi_bg">
 
 
     <LinearLayout
@@ -37,7 +24,7 @@
             android:paddingLeft="@dimen/tencent_tls_ui_edittext_leftpadding"
             android:paddingRight="@dimen/tencent_tls_ui_edittext_rightpadding"
             android:text="中国大陆 +86"
-            android:textColor="@color/tencent_tls_ui_white"
+            android:textColor="@color/login_text_color"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <LinearLayout
@@ -58,7 +45,7 @@
                 android:paddingRight="@dimen/tencent_tls_ui_edittext_rightpadding"
                 android:singleLine="true"
                 android:background="@drawable/rect_alpha_bg"
-                android:textColorHint="@color/tencent_tls_ui_white" />
+                android:textColorHint="@color/login_text_color" />
 
             <Button
                 android:id="@+id/btn_requireCheckCode_hostLogin"
@@ -68,7 +55,7 @@
                 android:background="@null"
                 android:drawableLeft="@drawable/tencent_tls_ui_divider"
                 android:text="获取验证码"
-                android:textColor="@color/tencent_tls_ui_white"
+                android:textColor="@color/login_text_color"
                 android:textSize="@dimen/tencent_tls_ui_buttonFontSize" />
 
         </LinearLayout>
@@ -84,7 +71,7 @@
             android:inputType="number"
             android:paddingLeft="@dimen/tencent_tls_ui_edittext_leftpadding"
             android:singleLine="true"
-            android:textColorHint="@color/tencent_tls_ui_white" />
+            android:textColorHint="@color/login_text_color" />
 
         <Button
             android:id="@+id/btn_hostLogin"
@@ -97,30 +84,42 @@
             android:textColor="@color/tencent_tls_ui_white"
             android:textSize="18sp" />
 
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/accountLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|left"
-                android:text="@string/tencent_tls_ui_independentLoginTitle"
-                android:textColor="@color/tencent_tls_ui_white" />
-
-            <TextView
-                android:id="@+id/hostRegisterNewUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|right"
-                android:text="注册新用户"
-                android:textColor="@color/tencent_tls_ui_white" />
-
-        </FrameLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/hostRegisterNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/tencent_tls_ui_btn_orange_bg"
+        android:text="注册新用户"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/login_text_color" />
+
+    <RelativeLayout
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            style="@style/tencent_tls_ui_titleFontStyle"
+            android:textColor="@color/login_text_color"
+            android:text="@string/tencent_tls_ui_hostLoginTitle" />
+
+    </RelativeLayout>
     <!--
      <fragment
             android:name="com.tencent.qcloud.tlslibrary.fragment.QQWXFragment"

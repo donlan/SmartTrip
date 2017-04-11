@@ -23,7 +23,10 @@ import tencent.tls.platform.TLSStrAccRegListener;
 import tencent.tls.platform.TLSUserInfo;
 
 /**
- * Created by dgy on 15/7/8.
+ * Created by 梁桂栋 on 15/7/8 ： 下午3:36.
+ * Email:       760625325@qq.com
+ * GitHub:      github.com/donlan
+ * description: SmartTrip
  */
 public class TLSService {
 
@@ -197,9 +200,7 @@ public class TLSService {
     }
 
     public boolean needLogin(String identifier) {
-        if (identifier == null)
-            return true;
-        return loginHelper.needLogin(identifier);
+        return identifier == null || loginHelper.needLogin(identifier);
     }
 
     public String getSDKVersion() {
