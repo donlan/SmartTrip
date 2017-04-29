@@ -3,18 +3,19 @@ package dong.lan.smarttrip.ui.travel;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.tencent.qcloud.ui.base.BaseBarActivity;
+
 import java.util.List;
 
 import butterknife.BindView;
+import dong.lan.model.Config;
+import dong.lan.model.features.IUserInfo;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.base.BinderClickListener;
 import dong.lan.smarttrip.adapters.binder.UserBinder;
-import dong.lan.model.Config;
-import dong.lan.model.features.IUserInfo;
 import dong.lan.smarttrip.presentation.presenter.TravelMembersPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelMemberPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.ITravelMembersView;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.IndexRecycleView;
 
 
@@ -23,7 +24,6 @@ public class TravelMembersActivity extends BaseBarActivity implements ITravelMem
     @BindView(R.id.travel_members_list)
     IndexRecycleView membersList;
 
-
     private ITravelMemberPresenter presenter;
 
     @Override
@@ -31,7 +31,6 @@ public class TravelMembersActivity extends BaseBarActivity implements ITravelMem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_members);
         bindView("团队成员");
-
         initView();
     }
 
@@ -47,9 +46,7 @@ public class TravelMembersActivity extends BaseBarActivity implements ITravelMem
 
     @Override
     public void initMembersList(List<IUserInfo> users) {
-
         membersList.setItemTittle(users);
-
         UserBinder binder = new UserBinder();
         binder.init(users);
         binder.setBinderClickListener(this);
