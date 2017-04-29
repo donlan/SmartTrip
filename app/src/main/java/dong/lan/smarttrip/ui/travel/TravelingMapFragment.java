@@ -27,6 +27,7 @@ import com.tencent.TIMGroupTipsElem;
 import com.tencent.TIMGroupTipsElemGroupInfo;
 import com.tencent.TIMGroupTipsGroupInfoType;
 import com.tencent.TIMManager;
+import com.tencent.qcloud.ui.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,24 +36,23 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import dong.lan.map.service.LocationService;
 import dong.lan.map.utils.MapHelper;
-import dong.lan.smarttrip.App;
-import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
-import dong.lan.smarttrip.common.SPHelper;
-import dong.lan.smarttrip.common.UserManager;
+import dong.lan.model.base.BaseJsonData;
 import dong.lan.model.bean.notice.Code;
 import dong.lan.model.bean.notice.GuideLocation;
 import dong.lan.model.bean.travel.Node;
-import dong.lan.model.base.BaseJsonData;
 import dong.lan.model.features.ITravel;
+import dong.lan.model.utils.TimeUtil;
+import dong.lan.smarttrip.App;
+import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.common.SPHelper;
+import dong.lan.smarttrip.common.UserManager;
 import dong.lan.smarttrip.presentation.presenter.TravelingMapPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelingMapFeature;
 import dong.lan.smarttrip.presentation.viewfeatures.ITravelingMapView;
-import dong.lan.smarttrip.ui.notice.CreateGatherActivity;
-import com.tencent.qcloud.ui.base.BaseFragment;
 import dong.lan.smarttrip.ui.customview.LabelTextView;
 import dong.lan.smarttrip.ui.customview.MapPinNumView;
-import dong.lan.model.utils.TimeUtil;
+import dong.lan.smarttrip.ui.notice.CreateGatherActivity;
 
 /**
  * Created by 梁桂栋 on 16-11-2 ： 下午9:27.
@@ -76,6 +76,8 @@ public class TravelingMapFragment extends BaseFragment implements ITravelingMapV
     }
 
 
+    @BindView(R.id.traveling_map_leader_loc)
+    LabelTextView leaderLocLtv;
     @BindView(R.id.traveling_map_nav_switcher)
     LabelTextView navSwitcher;
     @BindView(R.id.traveling_map_nav_guide)
@@ -99,6 +101,11 @@ public class TravelingMapFragment extends BaseFragment implements ITravelingMapV
         Intent intent = new Intent(getContext(), CreateGatherActivity.class);
         intent.putExtra(Config.TRAVEL_ID, getArguments().getString(Config.TRAVEL_ID));
         startActivity(intent);
+    }
+
+    @OnClick(R.id.traveling_map_leader_loc)
+    void toLeaderLocation(){
+
     }
 
     @OnClick(R.id.traveling_map_guide_loc)
@@ -185,6 +192,8 @@ public class TravelingMapFragment extends BaseFragment implements ITravelingMapV
     private BaiduMap baiduMap;
     private Marker markerMe;
     private Marker markerGuide;
+    private Marker markerLeader;
+
     private BitmapDescriptor bmpGuide = BitmapDescriptorFactory.fromResource(R.drawable.location_guide);
     private BitmapDescriptor bmpMe = BitmapDescriptorFactory.fromResource(R.drawable.location_me);
     private LocationService.LocationCallback locationCallback = new LocationService.LocationCallback() {
@@ -266,34 +275,48 @@ public class TravelingMapFragment extends BaseFragment implements ITravelingMapV
     }
 
     public void initView(ITravel travel) {
+
         if (travel.getTag().equals(UserManager.instance().identifier())) {
             guideLocSwitcher.setVisibility(View.VISIBLE);
             guideLocSwitcher.setText("共享位置:" + (guideLocFlag ? "开" : "关"));
             guideLocationLtv.setVisibility(View.GONE);
             gatherLtv.setVisibility(View.VISIBLE);
         } else {
-
-        }
-        TIMManager.getInstance().setGroupEventListener(new TIMGroupEventListener() {
-            @Override
-            public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
-                List<TIMGroupTipsElemGroupInfo> groupInfos = timGroupTipsElem.getGroupInfoList();
-                for (TIMGroupTipsElemGroupInfo info : groupInfos) {
-                    if (info.getType() == TIMGroupTipsGroupInfoType.ModifyNotification) {
-                        try {
-                            BaseJsonData<GuideLocation> notice = JSON.parseObject(info.getContent(), new TypeReference<BaseJsonData<GuideLocation>>() {
-                            });
-                            if (notice.code == Code.CODE_GUIDE_LOCATION) {
+            TIMManager.getInstance().setGroupEventListener(new TIMGroupEventListener() {
+                @Override
+                public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
+                    List<TIMGroupTipsElemGroupInfo> groupInfos = timGroupTipsElem.getGroupInfoList();
+                    for (TIMGroupTipsElemGroupInfo info : groupInfos) {
+                        if (info.getType() == TIMGroupTipsGroupInfoType.ModifyNotification) {
+                            try {
+                                BaseJsonData<GuideLocation> notice = JSON.parseObject(info.getContent(), new TypeReference<BaseJsonData<GuideLocation>>() {
+                                });
                                 LatLng p = notice.toTarget().toLatLng();
-                                setGuideLocation(p);
+                                if (notice.code == Code.CODE_GUIDE_LOCATION) {
+                                    setGuideLocation(p);
+                                } else if (notice.code == Code.CODE_LEADER_LOCATION) {
+                                    setLeaderLocation(p);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
                     }
                 }
-            }
-        });
+            });
+        }
+    }
+
+    /**
+     * 显示领队位置
+     * @param p
+     */
+    private void setLeaderLocation(LatLng p) {
+        if (markerLeader == null) {
+            markerLeader = MapHelper.drawMarker(baiduMap, p, bmpGuide, 0.5f, 0);
+        } else {
+            markerLeader.setPosition(p);
+        }
     }
 
 
