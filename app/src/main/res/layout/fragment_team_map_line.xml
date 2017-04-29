@@ -16,14 +16,34 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/flag"
+        android:drawableLeft="@drawable/location_flag"
         android:drawablePadding="16dp"
         android:gravity="center"
+        android:paddingBottom="4dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:paddingTop="4dp"
-        android:paddingBottom="4dp"
         android:text="@string/guide_location"
+        android:textSize="14sp"
+        app:bg_color="@color/white"
+        app:radius="20dp" />
+
+
+    <dong.lan.smarttrip.ui.customview.LabelTextView
+        android:id="@+id/traveling_map_leader_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/traveling_map_guide_loc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/location_flag"
+        android:drawablePadding="16dp"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="4dp"
+        android:text="@string/leader_location"
         android:textSize="14sp"
         app:bg_color="@color/white"
         app:radius="20dp" />
@@ -33,16 +53,16 @@
         android:id="@+id/traveling_map_me_loc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/traveling_map_guide_loc"
+        android:layout_below="@id/traveling_map_leader_loc"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/location"
         android:drawablePadding="4dp"
         android:gravity="center"
+        android:paddingBottom="4dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:paddingTop="4dp"
-        android:paddingBottom="4dp"
         android:text="@string/my_location"
         android:textSize="14sp"
         app:bg_color="@color/white"
@@ -50,7 +70,6 @@
 
 
     <dong.lan.smarttrip.ui.customview.LabelTextView
-        android:visibility="gone"
         android:id="@+id/traveling_map_guide_loc_switcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,12 +77,13 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
+        android:paddingBottom="8dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:text="@string/guide_location_swithcer_text"
         android:textSize="14sp"
+        android:visibility="gone"
         app:bg_color="@color/white"
         app:radius="18dp" />
 
@@ -163,9 +183,9 @@
     <dong.lan.smarttrip.ui.customview.LabelTextView
         android:id="@+id/traveling_map_new_gather"
         android:layout_width="60dp"
-        android:layout_below="@id/traveling_map_nav_parent"
-        android:layout_alignParentRight="true"
         android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/traveling_map_nav_parent"
         android:layout_gravity="end"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
@@ -173,12 +193,13 @@
         android:drawableTop="@drawable/gather_icon_40"
         android:gravity="center"
         android:padding="10dp"
-        android:visibility="gone"
         android:text="@string/gather"
         android:textColor="@color/white"
         android:textSize="14sp"
+        android:visibility="gone"
         app:bg_color="#ed252f"
         app:radius="40dp" />
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/traveling_map_hint_parent"
@@ -206,28 +227,26 @@
 
 
         <TextView
-            android:layout_toRightOf="@id/travel_nav_number"
             android:id="@+id/travel_nav_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/travel_nav_number"
             android:text="12:34"
             android:textColor="@color/main_text_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_below="@id/travel_nav_number"
             android:id="@+id/travel_nav_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/travel_nav_number"
             android:layout_toRightOf="@id/travel_nav_number"
             android:text="天安门广场"
             android:textColor="@color/main_text_color"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-
 
 
         <TextView
