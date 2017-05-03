@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 
 import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.blankj.ALog;
 import com.tencent.TIMFriendGenderType;
 import com.tencent.TIMFriendshipManager;
 import com.tencent.TIMUserProfile;
@@ -22,16 +22,15 @@ import com.tencent.qcloud.tlslibrary.service.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-import dong.lan.smarttrip.App;
-import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.common.EasyFragmentManager;
-import dong.lan.smarttrip.common.UserManager;
-
-
+import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.model.bean.user.User;
 import dong.lan.model.permission.Permission;
+import dong.lan.smarttrip.App;
+import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.base.DelayInitView;
+import dong.lan.smarttrip.common.EasyFragmentManager;
+import dong.lan.smarttrip.common.UserManager;
 import dong.lan.smarttrip.presentation.presenter.HomePresenter;
-import com.tencent.qcloud.ui.base.DelayInitView;
 import dong.lan.smarttrip.presentation.viewfeatures.HomeView;
 import dong.lan.smarttrip.task.FirstConfigTask;
 import dong.lan.smarttrip.task.TaskCallback;
@@ -41,7 +40,7 @@ import io.realm.Realm;
 /**
  * Tab页主界面
  */
-public class HomeActivity extends AppCompatActivity implements HomeView,BottomNavigationBar.OnTabSelectedListener {
+public class HomeActivity extends AppCompatActivity implements HomeView, BottomNavigationBar.OnTabSelectedListener {
     private static final String TAG = HomeActivity.class.getSimpleName();
 
     private BottomNavigationBar bnb;
@@ -112,7 +111,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView,BottomNa
         bnb.initialise();
         //是否是第一次注册跳转过来的
         boolean isFromRegister = getIntent().getBooleanExtra(Constants.EXTRA_FROM_REGISTER, false);
-        boolean isFromLogin = getIntent().getBooleanExtra(Constants.EXTRA_FROM_LOGIN,false);
+        boolean isFromLogin = getIntent().getBooleanExtra(Constants.EXTRA_FROM_LOGIN, false);
+
         if (isFromRegister) {
             doFirstConfig(delayInitView); //注册跳过过来,需要做一次服务配置:1.用户存储文件路径创建(COS)
         } else {
@@ -128,17 +128,18 @@ public class HomeActivity extends AppCompatActivity implements HomeView,BottomNa
      * 正常进入给页面后进行的初始化:初始化用户信息
      */
     private void normalInit(final DelayInitView delayInitView) {
+        AVOUser avoUser = AVOUser.getCurrentUser(AVOUser.class);
+        UserManager.instance().initAvoUser(avoUser);
         Realm realm = Realm.getDefaultInstance();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(final Realm realm) {
                 User user = realm.where(User.class).equalTo("identifier", UserManager.instance().identifier()).findFirst();
-
                 if (user == null) {
                     TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserProfile>() {
                         @Override
                         public void onError(int i, String s) {
-                            Log.d(TAG, "onError: " + i + "," + s);
+                            ALog.d(TAG, "onError: " + i + "," + s);
                         }
 
                         @Override
@@ -173,7 +174,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView,BottomNa
         new FirstConfigTask(new TaskCallback<String>() {
             @Override
             public void onTackCallback(String data) {
-                Log.d(TAG, "onTackCallback: " + data);
                 delayInitView.start(null);
             }
         }).execute(UserManager.instance().identifier());
@@ -197,7 +197,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView,BottomNa
      * 设置未读tab显示
      */
     public void setMsgUnread(boolean noUnread) {
-
         if (noUnread)
             badgeItems[0].hide();
         else

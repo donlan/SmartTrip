@@ -10,7 +10,7 @@ import com.tencent.TIMCallBack;
 import com.tencent.qcloud.presentation.presenter.GroupManagerPresenter;
 
 import dong.lan.smarttrip.R;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 
 public class ApplyGroupActivity extends BaseBarActivity implements TIMCallBack {
 

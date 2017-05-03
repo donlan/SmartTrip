@@ -30,7 +30,7 @@ import dong.lan.smarttrip.common.UserManager;
 import dong.lan.model.base.BaseJsonData;
 import dong.lan.smarttrip.model.im.CustomMessage;
 import dong.lan.model.bean.notice.Notice;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.DateTimePicker;
 import dong.lan.smarttrip.ui.customview.TagCloudView;
 import dong.lan.model.utils.TimeUtil;

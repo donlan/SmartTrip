@@ -17,7 +17,7 @@ import dong.lan.model.bean.notice.NoticeShow;
 import dong.lan.smarttrip.presentation.presenter.NoticeListPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.INoticeListPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.NoticeListView;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 
 public class NoticeListActivity extends BaseBarActivity implements NoticeListView {
 

@@ -17,7 +17,7 @@ import dong.lan.model.Config;
 import dong.lan.smarttrip.common.UserManager;
 import dong.lan.smarttrip.presentation.presenter.UserCenterPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.UserCenterView;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 import dong.lan.smarttrip.ui.im.FriendsActivity;
 
 /**

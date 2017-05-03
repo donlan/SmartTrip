@@ -2,31 +2,29 @@ package dong.lan.smarttrip.presentation.presenter;
 
 import android.Manifest;
 import android.content.Intent;
-import android.util.Log;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
+import com.blankj.ALog;
 import com.tencent.TIMFriendshipManager;
-import com.tencent.TIMGroupManager;
 import com.tencent.TIMUserProfile;
 import com.tencent.TIMValueCallBack;
-import com.wilddog.client.DataSnapshot;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 
-import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.avoscloud.model.AVOTravel;
+import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.model.BeanConvert;
-import dong.lan.permission.CallBack;
-import dong.lan.permission.Permission;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Travel;
-import dong.lan.smarttrip.model.factory.UserFactory;
 import dong.lan.model.features.IUser;
+import dong.lan.permission.CallBack;
+import dong.lan.permission.Permission;
+import dong.lan.smarttrip.model.factory.UserFactory;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelsDisplayMenu;
 import dong.lan.smarttrip.presentation.viewfeatures.TravelView;
 import dong.lan.smarttrip.ui.im.AddFriendActivity;
@@ -85,15 +83,12 @@ public class TravelPresenter implements ITravelsDisplayMenu {
     @Override
     public void loadFromNet() {
         AVQuery<AVOTravel> query = new AVQuery<>("Travel");
-        query.include("imageFile");
         query.include("creator");
-        query.include("documents");
-        query.include("nodes");
         query.whereEqualTo("tourists", AVOUser.getCurrentUser());
         query.findInBackground(new FindCallback<AVOTravel>() {
             @Override
             public void done(final List<AVOTravel> list, AVException e) {
-                Log.d(TAG, "done: " + list + "," + e);
+                ALog.d(TAG, "done: " + list + "," + e);
                 if (e == null) {
                     if (list == null || list.isEmpty()) {
                         view.toast("无旅行数据");

@@ -19,7 +19,7 @@ import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.checklist.CheckListAdapter;
 import dong.lan.model.bean.checklist.CheckGroup;
 import dong.lan.model.bean.checklist.CheckItem;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;

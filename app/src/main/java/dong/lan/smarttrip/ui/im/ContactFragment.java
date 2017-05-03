@@ -19,7 +19,7 @@ import dong.lan.smarttrip.adapters.ExpandGroupListAdapter;
 import dong.lan.smarttrip.model.im.FriendProfile;
 import dong.lan.smarttrip.model.im.FriendshipInfo;
 import dong.lan.smarttrip.model.im.GroupInfo;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 
 /**
  * 联系人界面

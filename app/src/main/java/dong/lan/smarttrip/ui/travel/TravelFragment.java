@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,20 +16,22 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.blankj.ALog;
+
 import java.util.List;
 
+import dong.lan.model.Config;
 import dong.lan.model.features.ITravel;
 import dong.lan.permission.Permission;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.base.BinderClickListener;
-import dong.lan.model.Config;
 import dong.lan.smarttrip.adapters.binder.TravelBinder;
+import dong.lan.smarttrip.base.BaseFragment;
 import dong.lan.smarttrip.presentation.presenter.TravelPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelsDisplayMenu;
 import dong.lan.smarttrip.presentation.viewfeatures.TravelView;
-import com.tencent.qcloud.ui.base.BaseFragment;
-import dong.lan.smarttrip.ui.customview.popupView.MenuPopup;
 import dong.lan.smarttrip.ui.customview.RecycleViewDivider;
+import dong.lan.smarttrip.ui.customview.popupView.MenuPopup;
 
 /**
  * Created by 梁桂栋 on 16-10-8 ： 下午4:15.
@@ -156,7 +157,7 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
         if (resultCode == Activity.RESULT_OK && requestCode == Config.REQUEST_CODE_ZXING) {
             Bundle res = data.getExtras();
             String resStr = res.getString("result");
-            Log.d(TAG, "onActivityResult: " + resStr);
+            ALog.d(TAG, "onActivityResult: " + resStr);
             presenter.handleScanResult(resStr);
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -194,7 +195,7 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
 
     @Override
     public void onClick(ITravel data, int position, int action) {
-        Log.d(TAG, "onClick: "+data);
+        ALog.d(TAG, "onClick: "+data);
         if (action == 0) {
             Intent travelingIntent = new Intent(getContext(), TravelingActivity.class);
             travelingIntent.putExtra(Config.TRAVEL_ID, data.getId());
@@ -210,7 +211,7 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
             initView();
             presenter.loadTravels();
         }
-        Log.d(TAG, "start: "+isStart+","+isAdded());
+        ALog.d(TAG, "start: "+isStart+","+isAdded());
         isStart = true;
     }
 }

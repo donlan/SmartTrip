@@ -16,7 +16,7 @@ import butterknife.BindView;
 import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
 import dong.lan.smarttrip.common.EasyFragmentManager;
-import com.tencent.qcloud.ui.base.BaseActivity;
+import dong.lan.smarttrip.base.BaseActivity;
 import dong.lan.smarttrip.ui.im.ChatFragment;
 
 public class TravelingActivity extends BaseActivity implements TabIndicator.TabClickListener {

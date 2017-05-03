@@ -1,6 +1,9 @@
 package dong.lan.avoscloud.model;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVRelation;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.SaveCallback;
 
 /**
  * Created by 梁桂栋 on 17-4-2 ： 下午2:03.
@@ -41,6 +44,26 @@ public class AVOUser extends AVUser {
 
     public void setMobile(String mobile) {
         put("mobile", mobile);
+    }
+
+    public AVRelation getFriends() {
+        return getRelation("friends");
+    }
+
+    public void removeFriend(AVOUser avoUser) {
+        getFriends().remove(avoUser);
+        this.saveInBackground();
+    }
+
+    public void addFriend(AVOUser avoUser) {
+        getFriends().add(avoUser);
+        this.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e != null)
+                    e.printStackTrace();
+            }
+        });
     }
 
 }

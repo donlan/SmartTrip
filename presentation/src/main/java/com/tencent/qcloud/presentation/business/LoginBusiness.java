@@ -1,12 +1,9 @@
 package com.tencent.qcloud.presentation.business;
 
-import android.util.Log;
-
 import com.tencent.TIMCallBack;
 import com.tencent.TIMManager;
 import com.tencent.TIMUser;
 import com.tencent.qcloud.sdk.Constant;
-import com.tencent.qcloud.tlslibrary.service.TlsBusiness;
 
 /**
  * 登录

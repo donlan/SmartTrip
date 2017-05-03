@@ -3,7 +3,7 @@ package dong.lan.smarttrip.ui.travel;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 
 import java.util.List;
 

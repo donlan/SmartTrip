@@ -1,13 +1,7 @@
 package dong.lan.smarttrip.presentation.presenter;
 
-import android.util.Log;
-
-import java.util.List;
-
-import dong.lan.smarttrip.model.Gonglve;
 import dong.lan.smarttrip.model.GonglveHelper;
 import dong.lan.smarttrip.presentation.viewfeatures.GonglveView;
-import rx.Subscriber;
 
 /**
  * Created by 梁桂栋 on 16-11-2 ： 下午8:29.

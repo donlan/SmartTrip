@@ -11,7 +11,7 @@ import com.xys.libzxing.zxing.encoding.EncodingUtils;
 import butterknife.BindView;
 import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 
 /**
  * Created by 梁桂栋 on 17-3-3 ： 下午8:01.

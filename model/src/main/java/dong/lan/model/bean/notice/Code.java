@@ -9,4 +9,5 @@ package dong.lan.model.bean.notice;
 
 public class Code {
     public static final int CODE_GUIDE_LOCATION = 100;
+    public static final int CODE_LEADER_LOCATION = 1001;
 }

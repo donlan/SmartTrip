@@ -53,7 +53,7 @@ import dong.lan.model.bean.notice.NoticeShow;
 import dong.lan.model.bean.notice.TypingNotice;
 import dong.lan.smarttrip.ui.ImagePreviewActivity;
 import dong.lan.smarttrip.ui.ProfileActivity;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 import dong.lan.smarttrip.ui.notice.CreateNoticeActivity;
 import dong.lan.smarttrip.utils.FileUtil;
 import dong.lan.smarttrip.utils.MediaUtil;

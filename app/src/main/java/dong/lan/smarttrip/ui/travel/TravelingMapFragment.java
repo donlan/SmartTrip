@@ -27,7 +27,7 @@ import com.tencent.TIMGroupTipsElem;
 import com.tencent.TIMGroupTipsElemGroupInfo;
 import com.tencent.TIMGroupTipsGroupInfoType;
 import com.tencent.TIMManager;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

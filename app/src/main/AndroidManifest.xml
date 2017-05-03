@@ -276,6 +276,8 @@
         </activity>
         <activity android:name=".ui.notice.NoticeListActivity" />
         <activity android:name=".ui.notice.CreateNoticeActivity"/>
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RegisterActivity"/>
     </application>
 
 </manifest>

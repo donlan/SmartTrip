@@ -3,23 +3,23 @@ package dong.lan.smarttrip.ui.travel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.avos.avoscloud.AVObject;
+import com.blankj.ALog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
+import dong.lan.model.Config;
+import dong.lan.model.bean.travel.Node;
+import dong.lan.model.utils.TimeUtil;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.TravelLinePagerAdapter;
-import dong.lan.model.Config;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.event.NodeEvent;
-import dong.lan.model.bean.travel.Node;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.AddLineNodeListView;
-import dong.lan.model.utils.TimeUtil;
 import io.realm.Realm;
 
 public class AddTravelLineActivity extends BaseBarActivity implements AddLineNodeListView.OnNodeClickListener {
@@ -107,7 +107,7 @@ public class AddTravelLineActivity extends BaseBarActivity implements AddLineNod
                 }
             });
         } else if (action == AddLineNodeListView.ACTION_NODE) {
-            Log.d("AddTravelLineActivity", (node.toString()));
+            ALog.d("AddTravelLineActivity", (node.toString()));
         }
     }
 

@@ -2,15 +2,13 @@ package dong.lan.smarttrip.adapters;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.SaveCallback;
-import com.wilddog.client.SyncError;
-import com.wilddog.client.SyncReference;
+import com.blankj.ALog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,9 +19,8 @@ import dong.lan.avoscloud.model.AVOTravel;
 import dong.lan.model.BeanConvert;
 import dong.lan.model.bean.travel.Node;
 import dong.lan.model.bean.travel.Travel;
-import dong.lan.smarttrip.model.wilddog.WDNode;
-import dong.lan.smarttrip.ui.customview.AddLineNodeListView;
 import dong.lan.model.utils.TimeUtil;
+import dong.lan.smarttrip.ui.customview.AddLineNodeListView;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -118,7 +115,7 @@ public class TravelLinePagerAdapter extends PagerAdapter {
                         }
                     });
                 }else{
-
+                    ALog.d(e);
                 }
             }
         });

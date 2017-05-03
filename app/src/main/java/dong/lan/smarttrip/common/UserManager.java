@@ -3,14 +3,15 @@ package dong.lan.smarttrip.common;
 import com.avos.avoscloud.AVUser;
 import com.tencent.TIMCallBack;
 import com.tencent.qcloud.presentation.business.LoginBusiness;
+import com.tencent.qcloud.presentation.business.UserInfo;
 import com.tencent.qcloud.tlslibrary.service.TlsBusiness;
 
-import dong.lan.model.Config;
 import dong.lan.avoscloud.Secure;
+import dong.lan.avoscloud.model.AVOUser;
+import dong.lan.model.Config;
+import dong.lan.model.bean.user.User;
 import dong.lan.smarttrip.common.features.IGroupFunc;
 import dong.lan.smarttrip.common.features.IUserFunc;
-import dong.lan.model.bean.user.User;
-import com.tencent.qcloud.presentation.business.UserInfo;
 
 /**
  * Created by 梁桂栋 on 17-1-10 ： 下午10:54.
@@ -79,5 +80,13 @@ public class UserManager implements IGroupFunc, IUserFunc {
         });
         TlsBusiness.logout(identifier());
         AVUser.logOut();
+    }
+
+    public AVOUser currentAvoUser() {
+        return AVOUser.getCurrentUser(AVOUser.class);
+    }
+
+    public void initAvoUser(AVOUser avoUser) {
+        SPHelper.instance().putString("avoUser", avoUser.toString());
     }
 }

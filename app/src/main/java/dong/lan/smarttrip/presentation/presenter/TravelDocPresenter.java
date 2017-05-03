@@ -1,11 +1,8 @@
 package dong.lan.smarttrip.presentation.presenter;
 
-import android.app.DownloadManager;
-import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -17,29 +14,21 @@ import com.avos.avoscloud.GetDataCallback;
 import com.avos.avoscloud.GetFileCallback;
 import com.avos.avoscloud.ProgressCallback;
 import com.avos.avoscloud.SaveCallback;
-import com.tencent.cos.model.COSResult;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.List;
 
 import dong.lan.avoscloud.model.AVODocument;
 import dong.lan.avoscloud.model.AVOTravel;
-import dong.lan.filecloud.COS;
-import dong.lan.filecloud.COSApi;
-import dong.lan.filecloud.COSCallBack;
-import dong.lan.filecloud.bean.COSType;
-import dong.lan.filecloud.bean.DownloadBean;
 import dong.lan.filecloud.utils.FileUtils;
 import dong.lan.model.BeanConvert;
 import dong.lan.model.Config;
-import dong.lan.smarttrip.common.UserManager;
-import dong.lan.model.bean.user.Tourist;
-import dong.lan.smarttrip.presentation.presenter.features.ITravelDocument;
-import dong.lan.smarttrip.presentation.viewfeatures.TravelDocumentView;
-
 import dong.lan.model.bean.travel.Document;
 import dong.lan.model.bean.travel.Travel;
+import dong.lan.model.bean.user.Tourist;
+import dong.lan.smarttrip.common.UserManager;
+import dong.lan.smarttrip.presentation.presenter.features.ITravelDocument;
+import dong.lan.smarttrip.presentation.viewfeatures.TravelDocumentView;
 import dong.lan.smarttrip.utils.FileUtil;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -72,7 +61,7 @@ public class TravelDocPresenter implements ITravelDocument {
             realm.cancelTransaction();
         realm.beginTransaction();
         travel = realm.where(Travel.class).equalTo("id", travelId).findFirst();
-        documents = realm.where(Document.class).equalTo("travel.id",travelId).findAllSortedAsync("role", Sort.DESCENDING);
+        documents = realm.where(Document.class).equalTo("travel.id", travelId).findAllSortedAsync("role", Sort.DESCENDING);
         view.initDocList(documents,
                 travel.getPermission(new Tourist(UserManager.instance().currentUser())));
         realm.commitTransaction();
@@ -80,11 +69,11 @@ public class TravelDocPresenter implements ITravelDocument {
             @Override
             public void onChange(RealmResults<Document> element) {
 
-                if(element.isEmpty()){
+                if (element.isEmpty()) {
                     view.toast("尝试从服务器加载文档");
                     getDocumentsFromNet();
                 }
-                view.refreshDocList(0,0);
+                view.refreshDocList(0, 0);
             }
         });
     }
@@ -96,6 +85,7 @@ public class TravelDocPresenter implements ITravelDocument {
         AVObject avObject = AVOTravel.createWithoutData("Travel", travel.getObjId());
         AVQuery<AVODocument> query = new AVQuery<>("Documents");
         query.whereEqualTo("travel", avObject);
+        query.include("documentFile");
         query.findInBackground(new FindCallback<AVODocument>() {
             @Override
             public void done(final List<AVODocument> documents, AVException e) {
@@ -186,15 +176,15 @@ public class TravelDocPresenter implements ITravelDocument {
         if (file.exists()) {
             view.toast(document.getName());
             String type = FileUtils.getFileType(document.getName());
-            switch (type) {
-                case "jpg":
-                case "png":
-
-                    break;
-                case "doc":
-                case "docx":
-
-                    break;
+            String mimeType = FileUtil.getMIMEType(type);
+            try {
+                Intent intent = new Intent();
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.fromFile(file), mimeType);
+                view.activity().startActivity(intent);
+            } catch (Exception e) {
+                view.toast("手机中没有能打开此文件的应用");
             }
         } else {
             if (isTasking) {

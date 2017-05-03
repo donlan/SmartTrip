@@ -1,6 +1,6 @@
 package dong.lan.smarttrip.presentation.viewfeatures;
 
-import com.tencent.qcloud.ui.base.DelayInitView;
+import dong.lan.smarttrip.base.DelayInitView;
 
 import java.util.List;
 

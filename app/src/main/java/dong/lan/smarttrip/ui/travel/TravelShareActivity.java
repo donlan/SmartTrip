@@ -13,7 +13,7 @@ import butterknife.BindView;
 import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Travel;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.model.utils.TimeUtil;
 import io.realm.Realm;
 

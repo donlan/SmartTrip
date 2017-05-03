@@ -43,7 +43,7 @@ import dong.lan.permission.Permission;
 import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
-import com.tencent.qcloud.ui.base.BaseActivity;
+import dong.lan.smarttrip.base.BaseActivity;
 import dong.lan.smarttrip.utils.InputUtils;
 
 public class PickLocationActivity extends BaseActivity {

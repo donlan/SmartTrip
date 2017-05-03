@@ -23,7 +23,7 @@ import com.tencent.qcloud.tlslibrary.helper.MResource;
  * Email: 760625325@qq.com
  * Github: github.com/donlan
  */
-public class EditTextWithListPopupWindow extends EditText {
+public class EditTextWithListPopupWindow extends android.support.v7.widget.AppCompatEditText {
 
     private final int DRAWABLE_RIGHT = 2;
     private final int UP_ARROW = 0;

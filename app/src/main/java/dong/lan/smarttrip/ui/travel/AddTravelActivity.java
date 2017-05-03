@@ -14,12 +14,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import dong.lan.permission.CallBack;
-import dong.lan.permission.Permission;
-
-import dong.lan.model.features.ITravel;
-import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
-
 import com.bumptech.glide.Glide;
 import com.tencent.qcloud.ui.TagsEditText;
 
@@ -29,15 +23,19 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import dong.lan.filecloud.utils.FileUtils;
-import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Travel;
+import dong.lan.model.features.ITravel;
+import dong.lan.model.utils.TimeUtil;
+import dong.lan.permission.CallBack;
+import dong.lan.permission.Permission;
+import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.presentation.presenter.TravelHandlePresenter;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelHandlePresenter;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
 import dong.lan.smarttrip.ui.customview.DateTimePicker;
 import dong.lan.smarttrip.utils.InputUtils;
-import dong.lan.model.utils.TimeUtil;
 
 /**
  * Created by 梁桂栋 on 16-10-13 ： 下午11:11.
@@ -180,7 +178,7 @@ public class AddTravelActivity extends BaseBarActivity implements AddTravelView,
             String dst = travel.getDestinations();
             if(!TextUtils.isEmpty(dst))
             for(int i = 0,s = dst.length();i<s;i++){
-                travelLocationsEt.append(dst.charAt(i)+"");
+                travelLocationsEt.append(dst.charAt(i)+" ");
             }
             travelStartTime.setText(TimeUtil.getTime(travel.getStartTime(),"yyyy.MM.dd"));
             travelEndTime.setText(TimeUtil.getTime(travel.getEndTime(),"yyyy.MM.dd"));

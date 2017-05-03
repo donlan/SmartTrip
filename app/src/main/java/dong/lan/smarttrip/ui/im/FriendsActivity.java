@@ -2,7 +2,7 @@ package dong.lan.smarttrip.ui.im;
 
 import android.os.Bundle;
 import dong.lan.smarttrip.R;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 
 public class FriendsActivity extends BaseBarActivity {
 

@@ -3,17 +3,15 @@ package dong.lan.smarttrip.task;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.SignUpCallback;
 import com.tencent.TIMFriendGenderType;
 import com.tencent.TIMFriendshipManager;
 import com.tencent.TIMUserProfile;
 import com.tencent.TIMValueCallBack;
 
-import dong.lan.avoscloud.AVOConfig;
-import dong.lan.smarttrip.common.UserManager;
+import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.model.bean.user.User;
 import dong.lan.model.permission.Permission;
+import dong.lan.smarttrip.common.UserManager;
 import io.realm.Realm;
 
 /**
@@ -25,9 +23,7 @@ import io.realm.Realm;
 
 public class FirstConfigTask extends AsyncTask<String, Integer, Object> {
     private static final String TAG = FirstConfigTask.class.getSimpleName();
-    private int successCount = 0;
     private Realm realm;
-//    private COSApi cosApi;
 
     private TaskCallback<String> taskCallback;
 
@@ -38,34 +34,8 @@ public class FirstConfigTask extends AsyncTask<String, Integer, Object> {
 
     @Override
     protected Object doInBackground(String... params) {
-        AVOConfig.signUp(UserManager.instance().identifier(), new SignUpCallback() {
-            @Override
-            public void done(AVException e) {
-                if(e == null){
-                    successCount ++;
-                }else{
-                    e.printStackTrace();
-                }
-            }
-        });
-//        try {
-//            new File(Config.APP_DOCUMENTS_DIR).mkdirs();
-//            new File(Config.APP_NODES_DIR).mkdirs();
-//            new File(Config.APP_DOWNLOAD_DIR).mkdirs();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        final String userId = "/" + params[0];
-//        if (cosApi == null)
-//            cosApi = COS.instance();
-//        cosApi.createDir(new DirBean(userId), new COSCallBack() {
-//            @Override
-//            public void callback(int status, COSResult listener) {
-//                if (status == COSCallBack.STATUS_DONE)
-//                    successCount++;
-//                finish(successCount);
-//            }
-//        });
+        AVOUser avoUser = AVOUser.getCurrentUser(AVOUser.class);
+        UserManager.instance().initAvoUser(avoUser);
         TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserProfile>() {
             @Override
             public void onError(int i, String s) {
@@ -91,17 +61,9 @@ public class FirstConfigTask extends AsyncTask<String, Integer, Object> {
                         UserManager.instance().initUser(realm.copyFromRealm(user));
                     }
                 });
-                successCount++;
-                finish(successCount);
+                taskCallback.onTackCallback("加载成功");
             }
         });
         return null;
-    }
-
-    private void finish(int count) {
-        Log.d(TAG, "finish: " + count);
-        if (count == 2) {
-            taskCallback.onTackCallback("加载成功");
-        }
     }
 }

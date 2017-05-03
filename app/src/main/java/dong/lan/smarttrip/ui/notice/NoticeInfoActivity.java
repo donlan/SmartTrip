@@ -19,7 +19,7 @@ import dong.lan.smarttrip.adapters.binder.NoticeReplyBinder;
 import dong.lan.smarttrip.presentation.presenter.NoticeInfoPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.INoticeInfoPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.NoticeInfoView;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.LabelTextView;
 import io.realm.RealmResults;
 

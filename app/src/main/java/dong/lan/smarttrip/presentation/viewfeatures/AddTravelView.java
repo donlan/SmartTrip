@@ -2,7 +2,7 @@ package dong.lan.smarttrip.presentation.viewfeatures;
 
 import android.app.Activity;
 
-import com.tencent.qcloud.ui.base.ProgressView;
+import dong.lan.smarttrip.base.ProgressView;
 
 import dong.lan.model.features.ITravel;
 

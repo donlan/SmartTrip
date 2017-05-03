@@ -3,7 +3,6 @@ package com.tencent.qcloud.tlslibrary.service;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -158,6 +157,7 @@ public class SmsLoginService {
             intent.setClassName(thirdappPackageNameSucc, thirdappClassNameSucc);
             context.startActivity(intent);
         } else {
+            TLSService.setLastErrno(0);
             ((Activity) context).setResult(Activity.RESULT_OK, intent);
         }
         ((Activity) context).finish();

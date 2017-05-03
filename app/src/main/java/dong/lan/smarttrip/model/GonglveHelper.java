@@ -1,23 +1,5 @@
 package dong.lan.smarttrip.model;
 
-import android.util.Log;
-
-
-import java.io.IOException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
-
-import rx.Observable;
-import rx.Scheduler;
-import rx.Single;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
 /**
  * Created by 梁桂栋 on 16-11-2 ： 下午7:29.
  * Email:       760625325@qq.com

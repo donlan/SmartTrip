@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.tencent.qcloud.ui.TabIndicator;
 
 import dong.lan.smarttrip.R;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 
 /**
  * Created by 梁桂栋 on 17-1-28 ： 下午11:37.

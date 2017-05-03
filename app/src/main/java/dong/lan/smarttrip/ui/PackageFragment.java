@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import dong.lan.smarttrip.R;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 
 import dong.lan.smarttrip.ui.customview.TabItemRecycleView;
 

@@ -1,18 +1,13 @@
 package com.tencent.qcloud.presentation.event;
 
-import android.util.Log;
-
-import com.tencent.TIMCallBack;
+import com.blankj.ALog;
 import com.tencent.TIMFriendGroup;
-import com.tencent.TIMFriendshipManager;
 import com.tencent.TIMFriendshipProxyListener;
 import com.tencent.TIMFriendshipProxyStatus;
 import com.tencent.TIMManager;
 import com.tencent.TIMSNSChangeInfo;
 import com.tencent.TIMUserProfile;
-import com.tencent.TIMValueCallBack;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -50,7 +45,7 @@ public class FriendshipEvent extends Observable implements TIMFriendshipProxyLis
 
     @Override
     public void OnAddFriends(List<TIMUserProfile> list) {
-        Log.d(TAG, "OnAddFriends");
+        ALog.d(TAG, "OnAddFriends");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.ADD, list));
 
@@ -58,7 +53,7 @@ public class FriendshipEvent extends Observable implements TIMFriendshipProxyLis
 
     @Override
     public void OnDelFriends(List<String> list) {
-        Log.d(TAG, "OnDelFriends");
+        ALog.d(TAG, "OnDelFriends");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.DEL, list));
     }
@@ -71,21 +66,21 @@ public class FriendshipEvent extends Observable implements TIMFriendshipProxyLis
 
     @Override
     public void OnAddFriendReqs(List<TIMSNSChangeInfo> list) {
-        Log.d(TAG, "OnAddFriendReqs");
+        ALog.d(TAG, "OnAddFriendReqs");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.ADD_REQ, list));
     }
 
     @Override
     public void OnAddFriendGroups(List<TIMFriendGroup> list) {
-        Log.d(TAG, "OnAddFriendGroups");
+        ALog.d(TAG, "OnAddFriendGroups");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.GROUP_UPDATE, list));
     }
 
     @Override
     public void OnDelFriendGroups(List<String> list) {
-        Log.d(TAG, "OnDelFriendGroups");
+        ALog.d(TAG, "OnDelFriendGroups");
         setChanged();
         notifyObservers(new NotifyCmd(NotifyType.GROUP_UPDATE, list));
     }

@@ -3,7 +3,7 @@ package dong.lan.smarttrip.ui;
 import android.os.Bundle;
 
 import dong.lan.smarttrip.R;
-import com.tencent.qcloud.ui.base.BaseActivity;
+import dong.lan.smarttrip.base.BaseActivity;
 import dong.lan.smarttrip.ui.customview.IndexRecycleView;
 import dong.lan.smarttrip.ui.customview.IndexView;
 import dong.lan.smarttrip.ui.customview.TagCloudView;

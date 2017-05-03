@@ -1,7 +1,6 @@
 package dong.lan.smarttrip;
 
-import android.app.Application;
-import android.util.Log;
+import android.support.multidex.MultiDexApplication;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.tencent.TIMGroupReceiveMessageOpt;
@@ -10,6 +9,7 @@ import com.tencent.TIMMessage;
 import com.tencent.TIMOfflinePushListener;
 import com.tencent.TIMOfflinePushNotification;
 import com.tencent.qalsdk.sdk.MsfSdkUtils;
+import com.tencent.qcloud.presentation.event.FriendshipEvent;
 import com.tencent.qcloud.presentation.event.GroupEvent;
 import com.tencent.qcloud.presentation.event.MessageEvent;
 
@@ -20,10 +20,11 @@ import dong.lan.avoscloud.AVOConfig;
 import dong.lan.map.service.LocationService;
 import dong.lan.model.Config;
 import dong.lan.model.RealmInit;
+import dong.lan.smarttrip.base.DelayInitView;
 import dong.lan.smarttrip.common.CustomMessageHandler;
+import dong.lan.smarttrip.common.FriendShipHandler;
 import dong.lan.smarttrip.common.GroupHandler;
 import dong.lan.smarttrip.common.SPHelper;
-import com.tencent.qcloud.ui.base.DelayInitView;
 import dong.lan.smarttrip.utils.Foreground;
 
 /**
@@ -31,7 +32,7 @@ import dong.lan.smarttrip.utils.Foreground;
  * Email: 760625325@qq.com
  * Github: github.com/donlan
  */
-public class App extends Application implements DelayInitView<Integer>,Observer{
+public class App extends MultiDexApplication implements DelayInitView<Integer>, Observer {
 
     private static final String TAG = "Application";
     private static App context;
@@ -56,7 +57,7 @@ public class App extends Application implements DelayInitView<Integer>,Observer{
         //WildDog.instance().init(this);
 
         //腾讯云对象存储
-       // COS.instance().init(this);
+        // COS.instance().init(this);
 
         //腾讯云通信
         Foreground.init(this);
@@ -67,7 +68,6 @@ public class App extends Application implements DelayInitView<Integer>,Observer{
                     if (notification.getGroupReceiveMsgOpt() == TIMGroupReceiveMessageOpt.ReceiveAndNotify) {
                         notification.doNotify(context, R.drawable.logo);
                     }
-                    Log.d(TAG, "handleNotification: " + notification);
                 }
             });
         }
@@ -98,18 +98,21 @@ public class App extends Application implements DelayInitView<Integer>,Observer{
     public void start(Integer data) {
         MessageEvent.getInstance().addObserver(this);
         GroupEvent.getInstance().addObserver(this);
+        FriendshipEvent.getInstance().addObserver(this);
     }
 
     @Override
     public void update(Observable observable, Object data) {
-        if (observable instanceof MessageEvent){
+        if (observable instanceof MessageEvent) {
             TIMMessage msg = (TIMMessage) data;
-            if(msg == null)
+            if (msg == null)
                 return;
             //只对自定义消息进行处理
             CustomMessageHandler.instance().handler(msg);
-        }else if(observable instanceof GroupEvent){
-            GroupHandler.instance().handler((GroupEvent.NotifyCmd)data);
+        } else if (observable instanceof GroupEvent) {
+            GroupHandler.instance().handler((GroupEvent.NotifyCmd) data);
+        } else if (observable instanceof FriendshipEvent) {
+            FriendShipHandler.getInstance().handler((FriendshipEvent.NotifyCmd) data);
         }
     }
 }

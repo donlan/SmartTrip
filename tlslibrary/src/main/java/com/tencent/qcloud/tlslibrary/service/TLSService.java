@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.tencent.qalsdk.QALSDKManager;
 import com.tencent.qcloud.tlslibrary.helper.Util;
 
 import tencent.tls.platform.TLSAccountHelper;
@@ -93,8 +92,6 @@ public class TLSService {
 //        QALSDKManager.getInstance().init(context.getApplicationContext(), (int)TLSConfiguration.SDK_APPID);
 //        QALSDKManager.getInstance().setEnv(0);     // 0: sso正式环境 1: sso测试环境, 即beta环境
 
-//        TIMManager.getInstance().init(context.getApplicationContext());
-//        TIMManager.getInstance().setEnv(1);
 
         loginHelper = TLSLoginHelper.getInstance().init(context.getApplicationContext(),
                 TLSConfiguration.SDK_APPID, TLSConfiguration.ACCOUNT_TYPE, TLSConfiguration.APP_VERSION);

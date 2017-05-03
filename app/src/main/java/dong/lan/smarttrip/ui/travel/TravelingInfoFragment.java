@@ -12,7 +12,7 @@ import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
 import dong.lan.smarttrip.common.UserManager;
 import dong.lan.model.bean.notice.NoticeShow;
-import com.tencent.qcloud.ui.base.BaseFragment;
+import dong.lan.smarttrip.base.BaseFragment;
 import dong.lan.smarttrip.ui.customview.TabItemRecycleView;
 import dong.lan.smarttrip.ui.notice.NoticeListActivity;
 

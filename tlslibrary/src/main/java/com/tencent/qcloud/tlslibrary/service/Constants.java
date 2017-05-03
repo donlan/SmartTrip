@@ -107,9 +107,11 @@ public class Constants {
     public final static String EXTRA_IMG_CHECKCODE = "com.tencent.tls.EXTRA_IMG_CHECKCODE";
     public static final String EXTRA_FROM_REGISTER = "login_from_register";
     public static final String EXTRA_FROM_LOGIN = "from_login";
+    public static final String IDENTIFIER = "identifier";
+    public static final String AVOBEANID = "avoBeanId";
 
     // 通过<包名，完整类名>的形式指定登录成功或失败时需要跳转的界面
-    public static String thirdappPackageNameSucc;
+    public static String thirdappPackageNameSucc ;
     public static String thirdappClassNameSucc;
     public static String thirdappPackageNameFail;
     public static String thirdappClassNameFail;

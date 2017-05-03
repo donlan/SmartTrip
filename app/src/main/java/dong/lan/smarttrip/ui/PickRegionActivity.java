@@ -27,7 +27,7 @@ import dong.lan.model.bean.world.CountryItem;
 import dong.lan.model.bean.world.Earth;
 import dong.lan.model.bean.world.StationItem;
 import dong.lan.model.bean.world.World;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.IndexRecycleView;
 import dong.lan.smarttrip.ui.customview.RecycleViewDivider;
 import io.realm.Realm;

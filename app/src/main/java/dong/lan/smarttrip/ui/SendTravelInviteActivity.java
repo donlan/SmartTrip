@@ -3,7 +3,6 @@ package dong.lan.smarttrip.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,8 +11,6 @@ import com.tencent.TIMGroupManager;
 import com.tencent.TIMGroupMemberResult;
 import com.tencent.TIMUserProfile;
 import com.tencent.TIMValueCallBack;
-import com.wilddog.client.SyncError;
-import com.wilddog.client.SyncReference;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,13 +18,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import dong.lan.model.Config;
+import dong.lan.model.features.IUserInfo;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.binder.InviteUserBinder;
-import dong.lan.model.Config;
+import dong.lan.smarttrip.base.BaseActivity;
 import dong.lan.smarttrip.model.factory.UserFactory;
-import dong.lan.model.features.IUserInfo;
-import dong.lan.smarttrip.model.wilddog.WDTourist;
-import com.tencent.qcloud.ui.base.BaseActivity;
 import dong.lan.smarttrip.ui.customview.IndexRecycleView;
 
 /**
@@ -75,12 +71,7 @@ public class SendTravelInviteActivity extends BaseActivity implements TIMValueCa
                 @Override
                 public void onSuccess(List<TIMGroupMemberResult> timGroupMemberResults) {
                     for(IUserInfo user:selectUsers){
-                        new WDTourist(user,travelId).save(new SyncReference.CompletionListener() {
-                            @Override
-                            public void onComplete(SyncError syncError, SyncReference syncReference) {
-                                Log.d(TAG, "onComplete: "+syncError+","+syncReference);
-                            }
-                        });
+                       
                     }
                     toast("发送邀请成功");
                 }

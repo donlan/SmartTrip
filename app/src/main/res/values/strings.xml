@@ -399,5 +399,6 @@
     <string name="nav_pick_point">选点</string>
     <string name="guide_location_swithcer_text">启用我的位置</string>
     <string name="gather">集合</string>
+    <string name="leader_location">领队位置</string>
 
 </resources>

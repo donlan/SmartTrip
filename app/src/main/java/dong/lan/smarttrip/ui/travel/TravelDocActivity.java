@@ -14,26 +14,25 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
-import dong.lan.filecloud.bean.BeanPath;
-import dong.lan.filecloud.bean.COSType;
-import dong.lan.filecloud.bean.UploadBean;
-import dong.lan.smarttrip.adapters.base.BinderClickListener;
-import dong.lan.smarttrip.adapters.binder.TravelDocBinder;
-import dong.lan.model.bean.travel.Document;
-import dong.lan.model.permission.Permission;
-import dong.lan.smarttrip.presentation.presenter.features.ITravelDocument;
-import dong.lan.smarttrip.presentation.viewfeatures.TravelDocumentView;
-
 import com.tencent.qcloud.ui.Dialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import dong.lan.filecloud.COSApi;
+import dong.lan.filecloud.bean.BeanPath;
+import dong.lan.filecloud.bean.COSType;
+import dong.lan.filecloud.bean.UploadBean;
 import dong.lan.filecloud.utils.FileUtils;
-import dong.lan.smarttrip.R;
 import dong.lan.model.Config;
+import dong.lan.model.bean.travel.Document;
+import dong.lan.model.permission.Permission;
+import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.adapters.base.BinderClickListener;
+import dong.lan.smarttrip.adapters.binder.TravelDocBinder;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.presentation.presenter.TravelDocPresenter;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.presentation.presenter.features.ITravelDocument;
+import dong.lan.smarttrip.presentation.viewfeatures.TravelDocumentView;
 import dong.lan.smarttrip.ui.customview.TittleItemDecoration;
 import io.realm.RealmResults;
 

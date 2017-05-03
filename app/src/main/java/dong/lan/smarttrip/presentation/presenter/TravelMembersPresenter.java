@@ -78,7 +78,6 @@ public class TravelMembersPresenter implements ITravelMemberPresenter {
         TIMGroupManager.getInstance().deleteGroupMember(travelId, Collections.singletonList(userId), new TIMValueCallBack<List<TIMGroupMemberResult>>() {
             @Override
             public void onError(int i, String s) {
-                Log.d(TAG, "onError: " + s);
                 view.dialog("删除成员失败,错误码:" + s);
             }
 

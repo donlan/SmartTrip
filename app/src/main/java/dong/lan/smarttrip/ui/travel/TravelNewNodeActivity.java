@@ -22,7 +22,7 @@ import dong.lan.model.bean.travel.Node;
 import dong.lan.model.bean.travel.Transportation;
 import dong.lan.smarttrip.ui.PickLocationActivity;
 import dong.lan.smarttrip.ui.PickRegionActivity;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.DateTimePicker;
 import dong.lan.model.utils.TimeUtil;
 import io.realm.RealmList;

@@ -1,10 +1,7 @@
 package com.tencent.qcloud.presentation.presenter;
 
 import android.os.Handler;
-import android.util.Log;
 
-import com.tencent.TIMCallBack;
-import com.tencent.TIMFriendshipManager;
 import com.tencent.qcloud.presentation.viewfeatures.SplashView;
 
 
@@ -12,7 +9,7 @@ import com.tencent.qcloud.presentation.viewfeatures.SplashView;
  * 闪屏界面逻辑
  */
 public class SplashPresenter {
-    SplashView view;
+    private SplashView view;
     private static final String TAG = SplashPresenter.class.getSimpleName();
 
     public SplashPresenter(SplashView view) {

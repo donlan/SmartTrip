@@ -18,7 +18,7 @@ import dong.lan.model.Config;
 import dong.lan.smarttrip.presentation.presenter.GatherInfoPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.IGatherInfoPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.GatherInfoView;
-import com.tencent.qcloud.ui.base.BaseBarActivity;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.model.utils.TimeUtil;
 import dong.lan.smarttrip.ui.customview.LabelTextView;
 import io.realm.RealmResults;

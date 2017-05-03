@@ -1,6 +1,6 @@
 package dong.lan.smarttrip.presentation.viewfeatures;
 
-import com.tencent.qcloud.ui.base.ProgressView;
+import dong.lan.smarttrip.base.ProgressView;
 
 import java.util.List;
 
