@@ -126,6 +126,12 @@ public class LabelTextView extends android.support.v7.widget.AppCompatTextView {
         invalidate();
     }
 
+    public void setBgResColor(int resColor) {
+        this.bgColor = getContext().getResources().getColor(resColor);
+        bgPaint.setColor(bgColor);
+        invalidate();
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

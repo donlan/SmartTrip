@@ -1,14 +1,17 @@
 package dong.lan.smarttrip;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.tencent.TIMGroupReceiveMessageOpt;
+import com.tencent.TIMLogLevel;
 import com.tencent.TIMManager;
 import com.tencent.TIMMessage;
 import com.tencent.TIMOfflinePushListener;
 import com.tencent.TIMOfflinePushNotification;
 import com.tencent.qalsdk.sdk.MsfSdkUtils;
+import com.tencent.qcloud.presentation.business.InitBusiness;
 import com.tencent.qcloud.presentation.event.FriendshipEvent;
 import com.tencent.qcloud.presentation.event.GroupEvent;
 import com.tencent.qcloud.presentation.event.MessageEvent;
@@ -54,6 +57,8 @@ public class App extends Application implements DelayInitView<Integer>, Observer
         //LeanCode
         AVOConfig.init(this);
 
+
+
         //腾讯云通信
         Foreground.init(this);
         if (MsfSdkUtils.isMainProcess(this)) {
@@ -66,6 +71,11 @@ public class App extends Application implements DelayInitView<Integer>, Observer
                 }
             });
         }
+
+        //初始化IMSDK
+        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+        int loglvl = pref.getInt("loglvl", TIMLogLevel.DEBUG.ordinal());
+        InitBusiness.start(App.myApp(), loglvl);
 
         //百度地图
         SDKInitializer.initialize(this);

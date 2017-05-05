@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import dong.lan.avoscloud.AVOConfig;
+import dong.lan.avoscloud.Test;
 import dong.lan.model.Config;
 import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
@@ -168,13 +168,6 @@ public class SplashActivity extends FragmentActivity implements SplashView, TIMC
             UserManager.needLoadingPager(false);
         }
 
-        AVOConfig.login(UserManager.instance().identifier(), new LogInCallback<AVUser>() {
-            @Override
-            public void done(AVUser avUser, AVException e) {
-                ALog.d(TAG, "done: " + avUser + "," + e);
-            }
-        });
-
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra(Constants.EXTRA_FROM_LOGIN, getIntent().getBooleanExtra(Constants.EXTRA_FROM_LOGIN, false));
         intent.putExtra(Constants.EXTRA_FROM_REGISTER, getIntent().getBooleanExtra(Constants.EXTRA_FROM_REGISTER, false));
@@ -226,18 +219,15 @@ public class SplashActivity extends FragmentActivity implements SplashView, TIMC
             return;
         isInit = true;
         isFirst = UserManager.isFirst();
-        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
-        int loglvl = pref.getInt("loglvl", TIMLogLevel.DEBUG.ordinal());
-        //初始化IMSDK
-        InitBusiness.start(App.myApp(), loglvl);
-        //初始化TLS
-        TlsBusiness.init(App.myApp());
-        //设置刷新监听
-        RefreshEvent.getInstance();
-        IMBusiness();
+
         Flowable.fromCallable(new Callable<Boolean>() {
             @Override
             public Boolean call() throws Exception {
+
+                //初始化TLS
+                TlsBusiness.init(App.myApp());
+
+                IMBusiness();
                 return isUserLogin();
             }
         }).delay(1, TimeUnit.SECONDS).subscribeOn(Schedulers.io())
@@ -245,6 +235,8 @@ public class SplashActivity extends FragmentActivity implements SplashView, TIMC
                 .subscribe(new Consumer<Boolean>() {
                     @Override
                     public void accept(@NonNull Boolean aBoolean) throws Exception {
+                        //设置刷新监听
+                        RefreshEvent.getInstance();
                         if (aBoolean) {
                             navToHome();
                         } else {

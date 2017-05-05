@@ -3,17 +3,30 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RTPermission/RTPermission.iml" filepath="$PROJECT_DIR$/RTPermission/RTPermission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RTPermission/RTPermission.iml" filepath="$PROJECT_DIR$/RTPermission/RTPermission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartTrip.iml" filepath="$PROJECT_DIR$/SmartTrip.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmartTrip.iml" filepath="$PROJECT_DIR$/SmartTrip.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/avoscloud/avoscloud.iml" filepath="$PROJECT_DIR$/avoscloud/avoscloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/avoscloud/avoscloud.iml" filepath="$PROJECT_DIR$/avoscloud/avoscloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map/map.iml" filepath="$PROJECT_DIR$/map/map.iml" />
       <module fileurl="file://$PROJECT_DIR$/map/map.iml" filepath="$PROJECT_DIR$/map/map.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdk/sdk.iml" filepath="$PROJECT_DIR$/sdk/sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk/sdk.iml" filepath="$PROJECT_DIR$/sdk/sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/time-duration-picker/time-duration-picker.iml" filepath="$PROJECT_DIR$/time-duration-picker/time-duration-picker.iml" />
       <module fileurl="file://$PROJECT_DIR$/time-duration-picker/time-duration-picker.iml" filepath="$PROJECT_DIR$/time-duration-picker/time-duration-picker.iml" />
       <module fileurl="file://$PROJECT_DIR$/tlslibrary/tlslibrary.iml" filepath="$PROJECT_DIR$/tlslibrary/tlslibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tlslibrary/tlslibrary.iml" filepath="$PROJECT_DIR$/tlslibrary/tlslibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ui/ui.iml" filepath="$PROJECT_DIR$/ui/ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui/ui.iml" filepath="$PROJECT_DIR$/ui/ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weather/weather.iml" filepath="$PROJECT_DIR$/weather/weather.iml" />
       <module fileurl="file://$PROJECT_DIR$/weather/weather.iml" filepath="$PROJECT_DIR$/weather/weather.iml" />
     </modules>
   </component>
