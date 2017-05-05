@@ -4,10 +4,15 @@ import android.Manifest;
 import android.content.Intent;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.GetCallback;
 import com.blankj.ALog;
+import com.tencent.TIMCallBack;
 import com.tencent.TIMFriendshipManager;
+import com.tencent.TIMGroupManager;
 import com.tencent.TIMUserProfile;
 import com.tencent.TIMValueCallBack;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
@@ -16,11 +21,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 
-import dong.lan.avoscloud.model.AVOTravel;
+import dong.lan.avoscloud.model.AVOTourist;
 import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.model.BeanConvert;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Travel;
+import dong.lan.model.features.ITravel;
 import dong.lan.model.features.IUser;
 import dong.lan.permission.CallBack;
 import dong.lan.permission.Permission;
@@ -82,12 +88,13 @@ public class TravelPresenter implements ITravelsDisplayMenu {
 
     @Override
     public void loadFromNet() {
-        AVQuery<AVOTravel> query = new AVQuery<>("Travel");
-        query.include("creator");
-        query.whereEqualTo("tourists", AVOUser.getCurrentUser());
-        query.findInBackground(new FindCallback<AVOTravel>() {
+        AVQuery<AVOTourist> query = new AVQuery<>("Tourist");
+        query.include("travel");
+        query.selectKeys(Collections.singletonList("travel"));
+        query.whereEqualTo("owner", AVOUser.getCurrentUser());
+        query.findInBackground(new FindCallback<AVOTourist>() {
             @Override
-            public void done(final List<AVOTravel> list, AVException e) {
+            public void done(final List<AVOTourist> list, AVException e) {
                 ALog.d(TAG, "done: " + list + "," + e);
                 if (e == null) {
                     if (list == null || list.isEmpty()) {
@@ -96,8 +103,8 @@ public class TravelPresenter implements ITravelsDisplayMenu {
                         Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
                             @Override
                             public void execute(Realm realm) {
-                                for (AVOTravel travel : list) {
-                                    Travel t = BeanConvert.toTravel(travel);
+                                for (AVOTourist tourist : list) {
+                                    Travel t = BeanConvert.toTravel(tourist.getTravel());
                                     realm.copyToRealmOrUpdate(t);
                                 }
                             }
@@ -114,8 +121,47 @@ public class TravelPresenter implements ITravelsDisplayMenu {
 
 
     @Override
-    public void deleteTravel(String travelId) {
+    public void deleteTravel(final ITravel travel) {
+        AVObject todo = AVObject.createWithoutData("Travel", travel.getObjId());
+        todo.fetchInBackground(new GetCallback<AVObject>() {
+            @Override
+            public void done(AVObject avObject, AVException e) {
+                if (e == null) {
+                    //删除该旅行的所有游客
+                    AVQuery<AVOTourist> query = new AVQuery<AVOTourist>("Tourist");
+                    query.whereEqualTo("travel", avObject);
+                    query.findInBackground(new FindCallback<AVOTourist>() {
+                        @Override
+                        public void done(List<AVOTourist> list, AVException e) {
+                            if (e == null && list != null && !list.isEmpty()) {
+                                AVObject.deleteAllInBackground(list, new DeleteCallback() {
+                                    @Override
+                                    public void done(AVException e) {
+                                        if (e != null)
+                                            e.printStackTrace();
+                                    }
+                                });
+                            }
+                        }
+                    });
+                    //删除群组
+                    TIMGroupManager.getInstance().deleteGroup(travel.getId(), new TIMCallBack() {
+                        @Override
+                        public void onError(int i, String s) {
+                            ALog.d("删除群组失败：" + i + "," + s + "->" + travel);
+                        }
 
+                        @Override
+                        public void onSuccess() {
+                            ALog.d("删除群组成功：" + travel);
+                        }
+                    });
+                    view.toast("删除成功");
+                } else {
+                    view.toast("删除旅行失败，错误码：" + e.getCode());
+                }
+            }
+        });
     }
 
     @Override

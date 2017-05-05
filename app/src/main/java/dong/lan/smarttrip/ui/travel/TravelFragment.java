@@ -201,7 +201,7 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
             travelingIntent.putExtra(Config.TRAVEL_ID, data.getId());
             startActivity(travelingIntent);
         } else {
-            presenter.deleteTravel(data.getId());
+            presenter.deleteTravel(data);
         }
     }
 

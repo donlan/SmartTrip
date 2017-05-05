@@ -12,6 +12,7 @@ import dong.lan.model.bean.travel.Travel;
 import dong.lan.model.features.IUserInfo;
 import dong.lan.model.features.ItemTextDisplay;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.RealmClass;
 
 /**
@@ -24,6 +25,7 @@ import io.realm.annotations.RealmClass;
 public class Tourist extends RealmObject implements IUserInfo,ItemTextDisplay {
 
 
+    @PrimaryKey
     private String objId;   //后台表id(保存本地,方便操作)
     private User user;      //游客对用的用户信息
     private Travel travel;

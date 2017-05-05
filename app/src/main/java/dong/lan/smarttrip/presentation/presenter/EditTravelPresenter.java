@@ -4,25 +4,21 @@ import android.text.TextUtils;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
-
-import dong.lan.avoscloud.model.AVOTravel;
-import dong.lan.model.BeanConvert;
-import dong.lan.model.bean.user.Tourist;
-import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
-
 import com.avos.avoscloud.ProgressCallback;
 import com.avos.avoscloud.SaveCallback;
 import com.tencent.qcloud.ui.Dialog;
 
 import java.util.List;
 
-import dong.lan.filecloud.COS;
-import dong.lan.filecloud.COSApi;
-import dong.lan.filecloud.utils.FileUtils;
-import dong.lan.smarttrip.common.UserManager;
+import dong.lan.avoscloud.model.AVOTravel;
+import dong.lan.model.BeanConvert;
 import dong.lan.model.bean.travel.Travel;
+import dong.lan.model.bean.user.Tourist;
 import dong.lan.model.features.ITravel;
+import dong.lan.model.utils.FileUtils;
+import dong.lan.smarttrip.common.UserManager;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelAction;
+import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
 import dong.lan.smarttrip.utils.FileUtil;
 import io.realm.Realm;
 
@@ -42,7 +38,6 @@ public class EditTravelPresenter implements ITravelAction {
     private Travel travel = null;
     private Realm realm;
     private String imgUrl;
-    private COSApi cosApi;
 
     public EditTravelPresenter(AddTravelView view, String travelId) {
         this.view = view;
@@ -60,8 +55,6 @@ public class EditTravelPresenter implements ITravelAction {
 
     private void uploadAndSaveTravel(final String travelName, final List<String> dest, final String travelIntro, final long travelStartTime, final long travelEndTime, final String imgPath) {
 
-        if (cosApi == null)
-            cosApi = COS.instance();
         final String fileId = FileUtils.createFileId(imgPath);
         realm.beginTransaction();
         if (!travel.getName().equals(travelName))

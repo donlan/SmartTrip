@@ -1,1 +1,1 @@
-include ':app', ':sdk', ':tlslibrary', ':presentation', ':ui', ':filecloud', ':RTPermission', ':libzxing', ':map', ':time-duration-picker', ':avoscloud', ':model', ':weather'
+include ':app', ':sdk', ':tlslibrary', ':presentation', ':ui', ':RTPermission', ':libzxing', ':map', ':time-duration-picker', ':avoscloud', ':model', ':weather'

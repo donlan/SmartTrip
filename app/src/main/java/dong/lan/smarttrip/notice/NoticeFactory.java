@@ -3,6 +3,7 @@ package dong.lan.smarttrip.notice;
 import com.alibaba.fastjson.JSON;
 
 import dong.lan.model.bean.notice.Gather;
+import dong.lan.model.bean.notice.Notice;
 import dong.lan.model.bean.notice.NoticeShow;
 import dong.lan.smarttrip.model.im.CustomMessage;
 
@@ -19,6 +20,8 @@ public class NoticeFactory {
         switch (code){
             case CustomMessage.Action.ACTION_GATHER:
                 return JSON.parseObject(json,Gather.class);
+            case CustomMessage.Action.ACTION_NOTICE:
+                return JSON.parseObject(json, Notice.class);
             default:
                 return null;
         }

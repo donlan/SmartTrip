@@ -2,15 +2,15 @@ package dong.lan.smarttrip.common;
 
 import android.text.TextUtils;
 
+import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.CloudQueryCallback;
 import com.avos.avoscloud.SaveCallback;
 import com.tencent.TIMFriendshipManager;
-import com.tencent.TIMGroupManager;
 import com.tencent.TIMGroupMemberInfo;
-import com.tencent.TIMManager;
 import com.tencent.TIMUserProfile;
 import com.tencent.TIMValueCallBack;
-import com.tencent.qcloud.presentation.event.FriendshipEvent;
 import com.tencent.qcloud.presentation.event.GroupEvent;
 
 import java.util.Collections;
@@ -144,8 +144,18 @@ public final class GroupHandler {
                     for (TIMGroupMemberInfo info : memberInfos) {
                         Tourist tourist = realm.where(Tourist.class).equalTo("user.indentifer", info.getUser())
                                 .equalTo("travel.id", groupId).findFirst();
-                        BeanConvert.toAvoTourist(tourist).deleteEventually();
-                        tourist.deleteFromRealm();
+                        if (tourist != null) {
+                            BeanConvert.toAvoTourist(tourist).deleteEventually();
+                            tourist.deleteFromRealm();
+                            AVQuery.doCloudQueryInBackground("delete from Todo where objectId='" + tourist.getObjId() + "'", new CloudQueryCallback<AVCloudQueryResult>() {
+                                @Override
+                                public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
+                                    // 如果 e 为空，说明保存成功
+                                    if(e !=null)
+                                        e.printStackTrace();
+                                }
+                            });
+                        }
                     }
                 }
             });

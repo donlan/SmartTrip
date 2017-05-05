@@ -18,11 +18,7 @@ import com.tencent.qcloud.ui.Dialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import dong.lan.filecloud.COSApi;
-import dong.lan.filecloud.bean.BeanPath;
-import dong.lan.filecloud.bean.COSType;
-import dong.lan.filecloud.bean.UploadBean;
-import dong.lan.filecloud.utils.FileUtils;
+import dong.lan.model.utils.FileUtils;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Document;
 import dong.lan.model.permission.Permission;
@@ -91,9 +87,6 @@ public class TravelDocActivity extends BaseBarActivity implements TravelDocument
                     chooseLevelView = LayoutInflater.from(this).inflate(R.layout.dialog_document_choose, null);
                     ((RadioGroup) (chooseLevelView.findViewById(R.id.doc_level_parent))).setOnCheckedChangeListener(this);
                 }
-
-                final BeanPath beanPath = new UploadBean(COSType.DOCUMENTS, path);
-
                 new Dialog(this)
                         .setClickListener(new Dialog.DialogClickListener() {
                             @Override
@@ -101,7 +94,7 @@ public class TravelDocActivity extends BaseBarActivity implements TravelDocument
                                 if (which == Dialog.CLICK_RIGHT) {
                                     alert("开始上传....");
                                     presenter.saveDoc(
-                                            COSApi.BASE_URL + beanPath.urlPath(),
+                                            path,
                                             path,
                                             level);
                                 }

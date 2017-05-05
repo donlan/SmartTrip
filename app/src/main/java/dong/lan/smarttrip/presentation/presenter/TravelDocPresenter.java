@@ -20,7 +20,7 @@ import java.util.List;
 
 import dong.lan.avoscloud.model.AVODocument;
 import dong.lan.avoscloud.model.AVOTravel;
-import dong.lan.filecloud.utils.FileUtils;
+import dong.lan.model.utils.FileUtils;
 import dong.lan.model.BeanConvert;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Document;

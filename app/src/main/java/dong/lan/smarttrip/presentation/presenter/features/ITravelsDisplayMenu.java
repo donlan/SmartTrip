@@ -2,6 +2,8 @@ package dong.lan.smarttrip.presentation.presenter.features;
 
 import java.util.Observer;
 
+import dong.lan.model.features.ITravel;
+
 /**
  * Created by 梁桂栋 on 17-2-23 ： 下午5:06.
  * Email:       760625325@qq.com
@@ -17,7 +19,7 @@ public interface ITravelsDisplayMenu extends Observer,ITravelMenuAction {
 
     void loadFromNet();
 
-    void deleteTravel(String travelId);
+    void deleteTravel(ITravel travelId);
 
     void refresh();
 

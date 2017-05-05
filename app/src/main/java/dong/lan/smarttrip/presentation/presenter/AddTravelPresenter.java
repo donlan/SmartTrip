@@ -11,28 +11,22 @@ import com.tencent.TIMGroupManager;
 import com.tencent.TIMGroupMemberInfo;
 import com.tencent.TIMValueCallBack;
 
-import dong.lan.avoscloud.model.AVODocument;
-import dong.lan.avoscloud.model.AVONode;
-import dong.lan.avoscloud.model.AVOTourist;
-import dong.lan.avoscloud.model.AVOUser;
-import dong.lan.avoscloud.model.AVOTravel;
-import dong.lan.filecloud.bean.BeanPath;
-import dong.lan.filecloud.bean.COSType;
-import dong.lan.filecloud.bean.UploadBean;
-import dong.lan.filecloud.utils.FileUtils;
-import dong.lan.model.BeanConvert;
-import dong.lan.model.features.ITourist;
-import dong.lan.model.permission.Permission;
-import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import dong.lan.filecloud.COSApi;
-import dong.lan.smarttrip.common.UserManager;
+import dong.lan.avoscloud.model.AVOTourist;
+import dong.lan.avoscloud.model.AVOTravel;
+import dong.lan.avoscloud.model.AVOUser;
+import dong.lan.model.BeanConvert;
 import dong.lan.model.bean.travel.Travel;
+import dong.lan.model.bean.user.Tourist;
+import dong.lan.model.features.ITourist;
 import dong.lan.model.features.ITravel;
+import dong.lan.model.permission.Permission;
+import dong.lan.model.utils.FileUtils;
+import dong.lan.smarttrip.common.UserManager;
 import dong.lan.smarttrip.presentation.presenter.features.ITravelAction;
+import dong.lan.smarttrip.presentation.viewfeatures.AddTravelView;
 import dong.lan.smarttrip.utils.FileUtil;
 import io.realm.Realm;
 
@@ -116,13 +110,28 @@ public class AddTravelPresenter implements ITravelAction {
                         public void done(AVException e) {
                             isUpload = false;
                             view.dismiss();
-                            AVOTourist tourist = new AVOTourist();
-                            tourist.setTravel(avoTravel);
-                            tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
-                            tourist.setRole(Permission.LEVEL_GUIDER);
-                            tourist.setStatus(ITourist.STATUS_NORMAL);
-                            tourist.saveEventually();
                             if (e == null || e.getCode() == -1) {
+                                final AVOTourist tourist = new AVOTourist();
+                                tourist.setTravel(avoTravel);
+                                tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
+                                tourist.setRole(Permission.LEVEL_GUIDER);
+                                tourist.setStatus(ITourist.STATUS_NORMAL);
+                                tourist.saveEventually(new SaveCallback() {
+                                    @Override
+                                    public void done(AVException e) {
+                                        if (e == null) {
+                                            Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
+                                                @Override
+                                                public void execute(Realm realm) {
+                                                    Tourist t = BeanConvert.toTourist(tourist);
+                                                    realm.copyToRealmOrUpdate(t);
+                                                }
+                                            });
+                                        } else {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
                                 Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
                                     @Override
                                     public void execute(Realm realm) {

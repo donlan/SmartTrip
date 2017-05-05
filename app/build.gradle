@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.antfortune.freeline'
 apply plugin: 'realm-android'
-apply plugin: 'android-apt'
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
@@ -38,24 +37,7 @@ android {
         abortOnError false
     }
 
-    packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
-        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
-        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.properties'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.xml'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties'
-        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml'
-    }
+
 
 }
 
@@ -66,15 +48,13 @@ dependencies {
     compile project(':libzxing')
     compile project(':RTPermission')
     compile project(':time-duration-picker')
-    compile 'com.alibaba:arouter-api:1.0.7'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.0.1'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile project(':model')
     compile project(":weather")
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

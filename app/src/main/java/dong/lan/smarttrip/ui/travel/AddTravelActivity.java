@@ -22,7 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import dong.lan.filecloud.utils.FileUtils;
+import dong.lan.model.utils.FileUtils;
 import dong.lan.model.Config;
 import dong.lan.model.bean.travel.Travel;
 import dong.lan.model.features.ITravel;

@@ -1,6 +1,6 @@
 package dong.lan.smarttrip;
 
-import android.support.multidex.MultiDexApplication;
+import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.tencent.TIMGroupReceiveMessageOpt;
@@ -32,7 +32,7 @@ import dong.lan.smarttrip.utils.Foreground;
  * Email: 760625325@qq.com
  * Github: github.com/donlan
  */
-public class App extends MultiDexApplication implements DelayInitView<Integer>, Observer {
+public class App extends Application implements DelayInitView<Integer>, Observer {
 
     private static final String TAG = "Application";
     private static App context;
@@ -40,24 +40,19 @@ public class App extends MultiDexApplication implements DelayInitView<Integer>, 
     //百度地图定位服务
     private LocationService locationService;
 
+//    @Override
+//    protected void attachBaseContext(Context base) {
+//        super.attachBaseContext(base);
+//        MultiDex.install(this);
+//    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
 
-        //阿里 ARoute
-//        ARouter.openLog();
-//        ARouter.openDebug();
-//        ARouter.init(this);
-
         //LeanCode
         AVOConfig.init(this);
-
-        //野狗
-        //WildDog.instance().init(this);
-
-        //腾讯云对象存储
-        // COS.instance().init(this);
 
         //腾讯云通信
         Foreground.init(this);

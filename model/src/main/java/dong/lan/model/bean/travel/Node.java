@@ -40,6 +40,9 @@ public class Node extends RealmObject implements Serializable, Comparator<Node> 
 
     RealmList<Transportation> transportations; //节点交通方式
 
+
+
+
     public Node() {
     }
 

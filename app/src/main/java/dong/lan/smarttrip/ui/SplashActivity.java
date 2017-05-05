@@ -35,6 +35,7 @@ import com.tencent.qcloud.ui.Dialog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 import dong.lan.avoscloud.AVOConfig;
 import dong.lan.model.Config;
@@ -239,7 +240,7 @@ public class SplashActivity extends FragmentActivity implements SplashView, TIMC
             public Boolean call() throws Exception {
                 return isUserLogin();
             }
-        }).subscribeOn(Schedulers.io())
+        }).delay(1, TimeUnit.SECONDS).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Boolean>() {
                     @Override

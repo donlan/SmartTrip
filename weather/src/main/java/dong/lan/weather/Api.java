@@ -12,7 +12,6 @@ import dong.lan.weather.bean.weather.WeatherResult;
 import okhttp3.OkHttpClient;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by 梁桂栋 on 17-4-9 ： 上午12:05.
@@ -37,7 +36,7 @@ public final class Api {
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.heweather.com/v5/")
                 .client(builder.build())
-                .addConverterFactory(GsonConverterFactory.create())
+                //.addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
