@@ -1,12 +1,12 @@
 package dong.lan.smarttrip.presentation.presenter;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
+import com.blankj.ALog;
 import com.tencent.TIMGroupManager;
 import com.tencent.TIMGroupMemberInfo;
 import com.tencent.TIMValueCallBack;
@@ -64,13 +64,13 @@ public class AddTravelPresenter implements ITravelAction {
             public void onError(int i, String s) {
                 view.dismiss();
                 isUpload = false;
-                Log.d(TAG, "onSuccess: " + s);
+                ALog.d(TAG, "onSuccess: " + s);
                 view.dialog("保存失败,错误码:" + i);
             }
 
             @Override
             public void onSuccess(String id) {
-                Log.d(TAG, "onSuccess: " + id);
+                ALog.d(TAG, "onSuccess: " + id);
                 groupId = id;
                 uploadAndSaveTravel(groupId, travelName, dest, travelIntro, travelStartTime, travelEndTime, imgPath);
             }
@@ -111,32 +111,37 @@ public class AddTravelPresenter implements ITravelAction {
                             isUpload = false;
                             view.dismiss();
                             if (e == null || e.getCode() == -1) {
-                                final AVOTourist tourist = new AVOTourist();
-                                tourist.setTravel(avoTravel);
-                                tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
-                                tourist.setRole(Permission.LEVEL_GUIDER);
-                                tourist.setStatus(ITourist.STATUS_NORMAL);
-                                tourist.saveEventually(new SaveCallback() {
-                                    @Override
-                                    public void done(AVException e) {
-                                        if (e == null) {
-                                            Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
-                                                @Override
-                                                public void execute(Realm realm) {
-                                                    Tourist t = BeanConvert.toTourist(tourist);
-                                                    realm.copyToRealmOrUpdate(t);
-                                                }
-                                            });
-                                        } else {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                });
                                 Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
                                     @Override
                                     public void execute(Realm realm) {
                                         travel = BeanConvert.toTravel(avoTravel);
                                         realm.copyToRealmOrUpdate(travel);
+                                        final AVOTourist tourist = new AVOTourist();
+                                        tourist.setTravel(avoTravel);
+                                        tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
+                                        tourist.setRole(Permission.LEVEL_GUIDER);
+                                        tourist.setStatus(ITourist.STATUS_NORMAL);
+                                        tourist.saveEventually(new SaveCallback() {
+                                            @Override
+                                            public void done(AVException e) {
+                                                if (e == null) {
+                                                    Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
+                                                        @Override
+                                                        public void execute(Realm realm) {
+                                                            Tourist t = new Tourist();
+                                                            t.setObjId(tourist.getObjectId());
+                                                            t.setRole(tourist.getRole());
+                                                            t.setStatus(tourist.getStatus());
+                                                            t.setTravel(travel);
+                                                            t.setUser(UserManager.instance().currentUser());
+                                                            realm.copyToRealmOrUpdate(t);
+                                                        }
+                                                    });
+                                                } else {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        });
                                     }
                                 });
                                 view.toast("保存成功");

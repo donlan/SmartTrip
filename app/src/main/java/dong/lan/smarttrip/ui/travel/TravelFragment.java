@@ -195,7 +195,7 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
 
     @Override
     public void onClick(ITravel data, int position, int action) {
-        ALog.d(TAG, "onClick: "+data);
+        ALog.d(TAG, "onClick: " + data);
         if (action == 0) {
             Intent travelingIntent = new Intent(getContext(), TravelingActivity.class);
             travelingIntent.putExtra(Config.TRAVEL_ID, data.getId());
@@ -208,10 +208,14 @@ public class TravelFragment extends BaseFragment implements TravelView, MenuPopu
     @Override
     public void start(Object data) {
         if (isAdded() && isStart) {
-            initView();
-            presenter.loadTravels();
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    initView();
+                    presenter.loadTravels();
+                }
+            });
         }
-        ALog.d(TAG, "start: "+isStart+","+isAdded());
         isStart = true;
     }
 }

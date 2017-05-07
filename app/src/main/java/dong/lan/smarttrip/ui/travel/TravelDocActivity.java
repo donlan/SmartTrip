@@ -150,6 +150,8 @@ public class TravelDocActivity extends BaseBarActivity implements TravelDocument
 
     @Override
     public void refreshDocList(int position, int action) {
+        if(docList == null)
+            return;
         docList.getAdapter().notifyDataSetChanged();
     }
 

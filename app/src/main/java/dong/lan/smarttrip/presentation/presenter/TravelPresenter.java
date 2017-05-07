@@ -55,6 +55,7 @@ public class TravelPresenter implements ITravelsDisplayMenu {
     private static final String TAG = TravelPresenter.class.getSimpleName();
     TravelView view;
     private Realm realm;
+    private boolean first = true;
 
     public TravelPresenter(TravelView view) {
         this.view = view;
@@ -69,22 +70,18 @@ public class TravelPresenter implements ITravelsDisplayMenu {
 
     @Override
     public void loadFromLocal() {
-        view.activity().runOnUiThread(new Runnable() {
+        RealmResults<Travel> travels = realm.where(Travel.class)
+                .findAllSortedAsync("unread", Sort.DESCENDING, "createTime", Sort.DESCENDING);
+        view.initAdapter(travels);
+        travels.addChangeListener(new RealmChangeListener<RealmResults<Travel>>() {
             @Override
-            public void run() {
-                RealmResults<Travel> travels = realm.where(Travel.class)
-                        .findAllSortedAsync("unread", Sort.DESCENDING, "createTime", Sort.DESCENDING);
-                view.initAdapter(travels);
-                travels.addChangeListener(new RealmChangeListener<RealmResults<Travel>>() {
-                    @Override
-                    public void onChange(RealmResults<Travel> element) {
-                        view.refreshDisplayView(0);
-                        if (element == null || element.isEmpty()) {
-                            view.toast("本地数据为空,即将从网络加载");
-                            loadFromNet();
-                        }
-                    }
-                });
+            public void onChange(RealmResults<Travel> element) {
+                view.refreshDisplayView(0);
+                if ( first && element == null || element.isEmpty()) {
+                    first = false;
+                    view.toast("本地数据为空,即将从网络加载");
+                    loadFromNet();
+                }
             }
         });
     }

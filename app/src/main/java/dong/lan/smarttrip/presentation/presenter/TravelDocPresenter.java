@@ -83,7 +83,7 @@ public class TravelDocPresenter implements ITravelDocument {
         if (travel == null)
             return;
         AVObject avObject = AVOTravel.createWithoutData("Travel", travel.getObjId());
-        AVQuery<AVODocument> query = new AVQuery<>("Documents");
+        AVQuery<AVODocument> query = new AVQuery<>("Document");
         query.whereEqualTo("travel", avObject);
         query.include("documentFile");
         query.findInBackground(new FindCallback<AVODocument>() {
