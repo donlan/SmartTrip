@@ -9,11 +9,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dong.lan.model.bean.notice.NoticeReply;
-import dong.lan.model.features.IBaseReply;
 import dong.lan.smarttrip.R;
-import dong.lan.smarttrip.adapters.base.AbstractBinder;
 import dong.lan.smarttrip.adapters.base.AbstractRealmBinder;
-import dong.lan.smarttrip.adapters.base.BaseAdapter;
 import dong.lan.smarttrip.adapters.base.BaseHolder;
 import dong.lan.smarttrip.adapters.base.BaseRealmAdapter;
 import dong.lan.smarttrip.adapters.base.BinderClickListener;
@@ -43,7 +40,8 @@ public class NoticeReplyBinder extends AbstractRealmBinder<NoticeReply> {
 
     @Override
     public BaseRealmAdapter<NoticeReply> build(){
-        return new BaseRealmAdapter<>(this);
+        baseAdapter = new BaseRealmAdapter<>(this);
+        return baseAdapter;
     }
 
     public  class ViewHolder extends BaseHolder<NoticeReply> {

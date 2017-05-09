@@ -1,16 +1,13 @@
 package dong.lan.model.bean.user;
 
 
-import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 
 import dong.lan.model.bean.travel.Travel;
 import dong.lan.model.features.IUserInfo;
 import dong.lan.model.features.ItemTextDisplay;
+import dong.lan.model.utils.PhoneUtils;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.RealmClass;
@@ -44,17 +41,12 @@ public class Tourist extends RealmObject implements IUserInfo,ItemTextDisplay {
 
     @Override
     public void call(Context context) {
-        Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.putExtra("tel", getUser().getPhone());
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        context.startActivity(intent);
+        PhoneUtils.call(context,user.getPhone());
     }
 
     @Override
     public void sms(Context context) {
-
+        PhoneUtils.smsTo(context,user.getPhone(),"");
     }
 
     public Travel getTravel() {

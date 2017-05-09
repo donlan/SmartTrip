@@ -269,9 +269,14 @@
         <activity android:name=".ui.PickRegionActivity" />
         <activity android:name=".ui.CheckListActivity" />
         <activity android:name=".ui.notice.CreateGatherActivity" />
-        <activity android:name=".ui.notice.GatherInfoActivity" >
+        <activity android:name="dong.lan.smarttrip.ui.notice.GatherInfoActivity" >
             <intent-filter>
-                <action android:name="dong.lan.smarttrip.ui.GatherInfoActivity"/>
+                <action android:name="dong.lan.smarttrip.ui.notice.GatherInfoActivity"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.notice.NoticeInfoActivity">
+            <intent-filter>
+                <action android:name="dong.lan.smarttrip.ui.notice.NoticeInfoActivity"/>
             </intent-filter>
         </activity>
         <activity android:name=".ui.notice.NoticeListActivity" />

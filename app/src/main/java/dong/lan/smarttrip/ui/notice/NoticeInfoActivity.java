@@ -6,6 +6,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -16,13 +18,14 @@ import dong.lan.model.bean.notice.NoticeReply;
 import dong.lan.model.utils.TimeUtil;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.binder.NoticeReplyBinder;
+import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.presentation.presenter.NoticeInfoPresenter;
 import dong.lan.smarttrip.presentation.presenter.features.INoticeInfoPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.NoticeInfoView;
-import dong.lan.smarttrip.base.BaseBarActivity;
 import dong.lan.smarttrip.ui.customview.LabelTextView;
 import io.realm.RealmResults;
 
+@Route(path = "/notice/noticeInfo")
 public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoView {
 
 
@@ -34,6 +37,9 @@ public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoVie
     LabelTextView switcherLtv;
     @BindView(R.id.notice_users)
     RecyclerView usersList;
+    private String id;
+    private String travelId;
+    private String creatorId;
 
     @OnClick(R.id.list_switcher)
     void clickSwitcher() {
@@ -45,8 +51,6 @@ public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoVie
             binder.showCache(false);
         }
         presenter.switcherShow(listFlag,switcherLtv);
-        if (usersList.getAdapter() != null)
-            usersList.getAdapter().notifyDataSetChanged();
         listFlag = !listFlag;
     }
 
@@ -56,11 +60,11 @@ public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gather_info);
+        setContentView(R.layout.activity_notice_info);
         bindView("通知详情");
-        String id = getIntent().getStringExtra("id");
-        String travelId = getIntent().getStringExtra(Config.TRAVEL_ID);
-        String creatorId = getIntent().getStringExtra(Config.IDENTIFIER);
+        id = getIntent().getStringExtra("id");
+        travelId = getIntent().getStringExtra(Config.TRAVEL_ID);
+        creatorId = getIntent().getStringExtra(Config.IDENTIFIER);
         presenter = new NoticeInfoPresenter(this);
         presenter.start(travelId,id);
     }
@@ -79,7 +83,6 @@ public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoVie
                 usersList.setLayoutManager(new GridLayoutManager(NoticeInfoActivity.this, 1));
                 noticeDetailTv.setText(notice.getShowContent());
                 timeInfoTv.setText("集合时间: " + TimeUtil.getTime(notice.time, "yyyy.MM.dd HH:mm"));
-
             }
         });
     }
@@ -89,7 +92,6 @@ public class NoticeInfoActivity extends BaseBarActivity implements NoticeInfoVie
         binder = new NoticeReplyBinder();
         binder.init(noticeReplies);
         usersList.setAdapter(binder.build());
-
     }
 
     @Override

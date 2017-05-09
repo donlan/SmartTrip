@@ -12,11 +12,11 @@ public interface INotice {
 
     String getObjId();
     String getId();
-    public long getCreateTime();
+     long getCreateTime();
 
-    public String getCreatorId();
+     String getCreatorId();
 
-    public String getTravelId();
+     String getTravelId();
 
-    public String getContent();
+     String getContent();
 }

@@ -1,8 +1,7 @@
 package dong.lan.model.bean.notice;
 
-import com.alibaba.fastjson.JSON;
-
 import dong.lan.model.base.Data;
+import dong.lan.model.base.GsonHelper;
 
 /**
  * Created by 梁桂栋 on 17-3-26 ： 下午10:56.
@@ -29,6 +28,6 @@ public class ReplyData implements Data {
 
     @Override
     public String toJson() {
-        return JSON.toJSONString(this);
+        return GsonHelper.getInstance().toJson(this);
     }
 }

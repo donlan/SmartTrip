@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import dong.lan.model.bean.notice.GatherReply;
 import dong.lan.model.bean.notice.Notice;
 import dong.lan.model.bean.notice.NoticeReply;
 import dong.lan.model.bean.user.Tourist;
-import dong.lan.model.features.IBaseReply;
 import dong.lan.model.features.IGatherReply;
 import dong.lan.smarttrip.presentation.presenter.features.INoticeInfoPresenter;
 import dong.lan.smarttrip.presentation.viewfeatures.NoticeInfoView;
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 
 /**
@@ -33,7 +32,7 @@ public class NoticeInfoPresenter implements INoticeInfoPresenter {
     public NoticeInfoPresenter(NoticeInfoView view) {
         this.view = view;
     }
-
+    private boolean first = true;
 
     private List<NoticeReply> replies;
     private HashMap<String, NoticeReply> replyMap = new HashMap<>();
@@ -56,16 +55,25 @@ public class NoticeInfoPresenter implements INoticeInfoPresenter {
         noticeReplies = Realm.getDefaultInstance().where(NoticeReply.class)
                 .equalTo("notice.id", id).findAllAsync();
         view.initList(noticeReplies);
+        noticeReplies.addChangeListener(new RealmChangeListener<RealmResults<NoticeReply>>() {
+            @Override
+            public void onChange(RealmResults<NoticeReply> noticeReplies) {
+                for (NoticeReply r : noticeReplies) {
+                    replyMap.put(r.getTourist().getIdentifier(), r);
+                }
+                if(first){
+                    first = false;
+                    loop(travelId);
+                }
+            }
+        });
+    }
 
 
+    private void loop(final String travelId){
         Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                if (noticeReplies != null) {
-                    for (NoticeReply r : noticeReplies) {
-                        replyMap.put(r.getTourist().getIdentifier(), r);
-                    }
-                }
                 if (replies == null)
                     replies = new ArrayList<>();
                 RealmResults<Tourist> tourists = realm.where(Tourist.class)
@@ -77,7 +85,7 @@ public class NoticeInfoPresenter implements INoticeInfoPresenter {
                         if (replyMap.containsKey(tourist.getIdentifier()))
                             continue;
                         NoticeReply reply = new NoticeReply();
-                        reply.tourist = tourist;
+                        reply.tourist = realm.copyFromRealm(tourist);
                         reply.status = IGatherReply.STATUS_NO;
                         replies.add(reply);
                     }

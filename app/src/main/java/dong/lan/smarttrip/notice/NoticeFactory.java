@@ -1,7 +1,6 @@
 package dong.lan.smarttrip.notice;
 
-import com.alibaba.fastjson.JSON;
-
+import dong.lan.model.base.GsonHelper;
 import dong.lan.model.bean.notice.Gather;
 import dong.lan.model.bean.notice.Notice;
 import dong.lan.model.bean.notice.NoticeShow;
@@ -19,9 +18,9 @@ public class NoticeFactory {
     public static NoticeShow parseNotice(int code, String json){
         switch (code){
             case CustomMessage.Action.ACTION_GATHER:
-                return JSON.parseObject(json,Gather.class);
+                return GsonHelper.getInstance().toTarget(json,Gather.class);
             case CustomMessage.Action.ACTION_NOTICE:
-                return JSON.parseObject(json, Notice.class);
+                return GsonHelper.getInstance().toTarget(json, Notice.class);
             default:
                 return null;
         }

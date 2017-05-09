@@ -16,7 +16,7 @@
         android:textSize="12sp"
         android:visibility="gone" />
 
-    <com.tencent.qcloud.ui.RelativeCarView
+    <dong.lan.library.RelativeCarView
         android:visibility="gone"
         android:id="@+id/messageCard"
         android:layout_width="match_parent"
@@ -24,11 +24,14 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="10dp"
-        android:padding="12dp"
-        app:rcv_backgroundColor="#E8484B"
+        android:padding="20dp"
+        app:rcv_marginX="8dp"
+        app:rcv_marginY="8dp"
+        app:rcv_backgroundColor="@color/colorPrimary"
         app:rcv_elevation="10dp"
         app:rcv_elevationColor="@color/background_gray3"
-        app:rcv_radius="10dp">
+        app:rcv_radius="10dp"
+        >
 
         <ImageView
             android:id="@+id/messageTagIcon"
@@ -62,7 +65,7 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-    </com.tencent.qcloud.ui.RelativeCarView>
+    </dong.lan.library.RelativeCarView>
 
 
     <RelativeLayout

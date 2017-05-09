@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,13 +12,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.LogInCallback;
 import com.blankj.ALog;
 import com.tencent.TIMCallBack;
-import com.tencent.TIMLogLevel;
-import com.tencent.qcloud.presentation.business.InitBusiness;
 import com.tencent.qcloud.presentation.business.LoginBusiness;
 import com.tencent.qcloud.presentation.business.UserInfo;
 import com.tencent.qcloud.presentation.event.FriendshipEvent;
@@ -37,7 +31,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import dong.lan.avoscloud.Test;
 import dong.lan.model.Config;
 import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
@@ -69,7 +62,6 @@ public class SplashActivity extends FragmentActivity implements SplashView, TIMC
         setContentView(R.layout.activity_splash);
 
         final List<String> permissionsList = new ArrayList<>();
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED))

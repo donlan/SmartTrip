@@ -3,6 +3,7 @@ package dong.lan.model.bean.notice;
 import com.baidu.mapapi.model.LatLng;
 
 import dong.lan.model.base.Data;
+import dong.lan.model.base.GsonHelper;
 
 /**
  * Created by 梁桂栋 on 17-3-26 ： 上午12:32.
@@ -26,6 +27,6 @@ public class GuideLocation implements Data {
     }
     @Override
     public String toJson() {
-        return null;
+        return GsonHelper.getInstance().toJson(this);
     }
 }

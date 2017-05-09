@@ -6,6 +6,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,6 +25,7 @@ import dong.lan.model.utils.TimeUtil;
 import dong.lan.smarttrip.ui.customview.LabelTextView;
 import io.realm.RealmResults;
 
+@Route(path = "/notice/gatherInfo")
 public class GatherInfoActivity extends BaseBarActivity implements GatherInfoView {
 
 

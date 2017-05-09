@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tencent.qcloud.ui.CircleImageView;
-import com.tencent.qcloud.ui.RelativeCarView;
 
 import java.util.List;
 
+import dong.lan.library.RelativeCarView;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.model.im.Message;
 

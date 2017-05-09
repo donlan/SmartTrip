@@ -2,12 +2,12 @@ package dong.lan.model.bean.notice;
 
 
 import android.content.Context;
-import android.content.Intent;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import dong.lan.model.Config;
 import dong.lan.model.base.Data;
+import dong.lan.model.base.GsonHelper;
 import dong.lan.model.features.IGather;
 import dong.lan.model.utils.TimeUtil;
 import io.realm.Realm;
@@ -91,7 +91,7 @@ public class Gather extends RealmObject implements Data, NoticeShow,IGather {
 
     @Override
     public String toJson() {
-        return JSON.toJSONString(this);
+        return GsonHelper.getInstance().toJson(this);
     }
 
     @Override
@@ -106,12 +106,11 @@ public class Gather extends RealmObject implements Data, NoticeShow,IGather {
 
     @Override
     public void jump(Context context) {
-        Intent intent = new Intent();
-        intent.putExtra("id",id);
-        intent.setAction("dong.lan.smarttrip.ui.GatherInfoActivity");
-        intent.putExtra(Config.TRAVEL_ID, travelId);
-        intent.putExtra(Config.IDENTIFIER, creatorId);
-        context.startActivity(intent);
+        ARouter.getInstance().build("/notice/gatherInfo")
+                .withString("id",id)
+                .withString(Config.TRAVEL_ID,travelId)
+                .withString(Config.IDENTIFIER,creatorId)
+                .navigation();
     }
 
     @Override

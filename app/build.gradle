@@ -57,4 +57,5 @@ dependencies {
     compile project(":weather")
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.0.3'
 }

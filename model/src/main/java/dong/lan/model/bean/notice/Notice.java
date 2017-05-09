@@ -3,14 +3,14 @@ package dong.lan.model.bean.notice;
 
 import android.content.Context;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.android.arouter.launcher.ARouter;
 
+import dong.lan.model.Config;
 import dong.lan.model.base.Data;
+import dong.lan.model.base.GsonHelper;
 import dong.lan.model.features.INotice;
 import dong.lan.model.utils.TimeUtil;
 import io.realm.Realm;
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -88,7 +88,11 @@ public class Notice extends RealmObject implements Data, NoticeShow ,INotice{
 
     @Override
     public void jump(Context context) {
-
+        ARouter.getInstance().build("/notice/noticeInfo")
+                .withString("id",id)
+                .withString(Config.TRAVEL_ID,travelId)
+                .withString(Config.IDENTIFIER,creatorId)
+                .navigation();
     }
 
     @Override
@@ -124,6 +128,6 @@ public class Notice extends RealmObject implements Data, NoticeShow ,INotice{
 
     @Override
     public String toJson() {
-        return JSON.toJSONString(this);
+        return GsonHelper.getInstance().toJson(this);
     }
 }

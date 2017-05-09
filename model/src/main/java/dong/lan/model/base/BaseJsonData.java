@@ -1,8 +1,6 @@
 package dong.lan.model.base;
 
 
-import com.alibaba.fastjson.JSON;
-
 /**
  * Created by 梁桂栋 on 17-3-25 ： 下午10:35.
  * Email:       760625325@qq.com
@@ -35,11 +33,11 @@ public class BaseJsonData<T extends Data> implements JsonType<T> {
 
     @Override
     public T toTarget() {
-        return (T) JSON.parseObject(data.toJson(), data.getClass());
+        return (T) GsonHelper.getInstance().toTarget(data.toJson(),data.getClass());
     }
 
     @Override
     public String toJson() {
-        return JSON.toJSONString(this);
+        return GsonHelper.getInstance().toJson(this);
     }
 }

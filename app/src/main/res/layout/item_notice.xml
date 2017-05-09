@@ -9,9 +9,14 @@
 
 
 
-    <com.tencent.qcloud.ui.RelativeCarView
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+    <dong.lan.library.RelativeCarView
+        app:rcv_marginX="8dp"
+        app:rcv_marginY="8dp"
+        app:rcv_elevation="8dp"
+        app:rcv_radius="12dp"
+        app:rcv_elevationColor="@color/background_gray3"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:id="@+id/notice_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </com.tencent.qcloud.ui.RelativeCarView>
+    </dong.lan.library.RelativeCarView>
 
     <ImageButton
         android:id="@+id/notice_delete"

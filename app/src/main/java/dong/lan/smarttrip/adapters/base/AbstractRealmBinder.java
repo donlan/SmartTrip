@@ -18,7 +18,7 @@ public abstract class AbstractRealmBinder<T extends RealmModel> implements Realm
     private List<T> cache;
     private boolean isCache = false;
     protected BinderClickListener<T> clickListener;
-    private BaseRealmAdapter<T> baseAdapter;
+    protected BaseRealmAdapter<T> baseAdapter;
 
     @Override
     public void setCache(List<T> cache) {

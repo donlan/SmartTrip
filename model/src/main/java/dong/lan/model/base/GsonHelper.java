@@ -1,4 +1,4 @@
-package dong.lan.smarttrip.common;
+package dong.lan.model.base;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

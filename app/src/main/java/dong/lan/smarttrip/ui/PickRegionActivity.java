@@ -20,7 +20,7 @@ import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.adapters.binder.CityBinder;
 import dong.lan.model.Config;
-import dong.lan.smarttrip.common.GsonHelper;
+import dong.lan.model.base.GsonHelper;
 import dong.lan.model.bean.world.City;
 import dong.lan.model.bean.world.CityItem;
 import dong.lan.model.bean.world.CountryItem;
