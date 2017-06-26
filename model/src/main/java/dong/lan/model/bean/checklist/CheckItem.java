@@ -14,14 +14,25 @@ public class CheckItem extends RealmObject {
     private boolean isCheck;
     private String name;
     private String remark;
+    private long timeStamp;
+
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public CheckItem() {
+        timeStamp = System.currentTimeMillis();
     }
 
     public CheckItem(boolean isCheck, String name, String remark) {
         this.isCheck = isCheck;
         this.name = name;
         this.remark = remark;
+        timeStamp = System.currentTimeMillis();
     }
 
     public boolean isCheck() {

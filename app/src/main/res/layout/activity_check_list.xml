@@ -10,7 +10,13 @@
     <include layout="@layout/action_bar" />
 
     <ExpandableListView
+        android:visibility="gone"
         android:id="@+id/check_expand_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/section_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -19,6 +19,7 @@ public class RealmInit {
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .schemaVersion(1)
                 .name("smarttrip")
+                .modules(new MyTravelModule())
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(configuration);

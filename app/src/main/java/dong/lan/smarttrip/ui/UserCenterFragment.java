@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.avos.avoscloud.feedback.FeedbackAgent;
 import com.tencent.qcloud.ui.CircleImageView;
 
 import butterknife.BindView;
@@ -70,7 +71,8 @@ public class UserCenterFragment extends BaseFragment implements UserCenterView {
 
     @OnClick(R.id.me_feedback)
     void toFeedbackAc() {
-
+        new FeedbackAgent(getContext())
+                .startDefaultThreadActivity();
     }
 
     @OnClick(R.id.me_friends)

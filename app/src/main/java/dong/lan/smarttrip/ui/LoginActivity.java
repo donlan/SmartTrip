@@ -68,6 +68,11 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
+        if(requireSmsBbt.isFocusable()){
+            toast("正在请求中...");
+            return;
+        }
+        requireSmsBbt.setFocusable(false);
         // 2. 请求验证码
         tlsService.smsLoginAskCode(countrycode, phoneNumber, smsLoginListener);
     }
@@ -192,6 +197,7 @@ public class LoginActivity extends BaseActivity {
         public void OnSmsLoginSuccess(TLSUserInfo userSigInfo) {
             toast("登录成功");
             TLSService.setLastErrno(0);
+            requireSmsBbt.setFocusable(true);
             jumpToSuccActivity();
         }
 
@@ -201,6 +207,7 @@ public class LoginActivity extends BaseActivity {
         public void OnSmsLoginFail(TLSErrInfo errInfo) { // 短信登录失败
             toast(errInfo.Msg);
             TLSService.setLastErrno(-1);
+            requireSmsBbt.setFocusable(true);
             jumpToFailActivity();
         }
 
@@ -209,6 +216,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void OnSmsLoginTimeout(TLSErrInfo errInfo) {
             toast(errInfo.Msg);
+            requireSmsBbt.setFocusable(true);
         }
     }
 

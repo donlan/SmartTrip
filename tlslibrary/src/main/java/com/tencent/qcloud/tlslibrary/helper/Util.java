@@ -42,7 +42,7 @@ public class Util {
      * @param max 失效时间（单位：s）
      * @param interval 更新间隔（单位：s）
      * */
-    public static void startTimer(Button button,
+    public static void startTimer(final Button button,
                                   String defaultString,
                                   String tmpString,
                                   int max,
@@ -53,7 +53,7 @@ public class Util {
         timer.setOnFinishListener(new CountDownButtonHelper.OnFinishListener(){
             @Override
             public void finish() {
-
+                button.setFocusable(true);
             }
         });
         timer.start();

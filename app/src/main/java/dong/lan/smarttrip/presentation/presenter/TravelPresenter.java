@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Observable;
 
 import dong.lan.avoscloud.model.AVOTourist;
+import dong.lan.avoscloud.model.AVOTravel;
 import dong.lan.avoscloud.model.AVOUser;
 import dong.lan.model.BeanConvert;
 import dong.lan.model.Config;
@@ -88,13 +89,13 @@ public class TravelPresenter implements ITravelsDisplayMenu {
 
     @Override
     public void loadFromNet() {
-        AVQuery<AVOTourist> query = new AVQuery<>("Tourist");
+        AVQuery<AVOTravel> query = new AVQuery<>("Travel");
         query.include("travel");
         query.selectKeys(Collections.singletonList("travel"));
-        query.whereEqualTo("owner", AVOUser.getCurrentUser());
-        query.findInBackground(new FindCallback<AVOTourist>() {
+        query.whereEqualTo("tourists", AVOUser.getCurrentUser());
+        query.findInBackground(new FindCallback<AVOTravel>() {
             @Override
-            public void done(final List<AVOTourist> list, AVException e) {
+            public void done(final List<AVOTravel> list, AVException e) {
                 ALog.d(TAG, "done: " + list + "," + e);
                 if (e == null) {
                     if (list == null || list.isEmpty()) {
@@ -103,8 +104,8 @@ public class TravelPresenter implements ITravelsDisplayMenu {
                         Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
                             @Override
                             public void execute(Realm realm) {
-                                for (AVOTourist tourist : list) {
-                                    Travel t = BeanConvert.toTravel(tourist.getTravel());
+                                for (AVOTravel travel : list) {
+                                    Travel t = BeanConvert.toTravel(travel);
                                     realm.copyToRealmOrUpdate(t);
                                 }
                             }

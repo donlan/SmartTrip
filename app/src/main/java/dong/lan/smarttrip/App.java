@@ -1,7 +1,9 @@
 package dong.lan.smarttrip;
 
-import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.SDKInitializer;
@@ -36,7 +38,7 @@ import dong.lan.smarttrip.utils.Foreground;
  * Email: 760625325@qq.com
  * Github: github.com/donlan
  */
-public class App extends Application implements DelayInitView<Integer>, Observer {
+public class App extends MultiDexApplication implements DelayInitView<Integer>, Observer {
 
     private static final String TAG = "Application";
     private static App context;
@@ -44,11 +46,11 @@ public class App extends Application implements DelayInitView<Integer>, Observer
     //百度地图定位服务
     private LocationService locationService;
 
-//    @Override
-//    protected void attachBaseContext(Context base) {
-//        super.attachBaseContext(base);
-//        MultiDex.install(this);
-//    }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     public void onCreate() {

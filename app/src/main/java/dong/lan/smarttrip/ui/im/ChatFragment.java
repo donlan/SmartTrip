@@ -242,6 +242,12 @@ public class ChatFragment extends BaseFragment implements ChatView {
                             handler.removeCallbacks(resetTitle);
                             handler.postDelayed(resetTitle, 3000);
                             break;
+                        case CustomMessage.Action.ACTION_NOTICE:
+                        case CustomMessage.Action.ACTION_GATHER:
+                            messageList.add(mMessage);
+                            adapter.notifyDataSetChanged();
+                            listView.setSelection(adapter.getCount() - 1);
+                            break;
                         default:
                             break;
                     }

@@ -1,7 +1,6 @@
 package dong.lan.smarttrip.adapters.checklist;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,13 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.blankj.ALog;
 
-import dong.lan.smarttrip.R;
 import dong.lan.model.bean.checklist.CheckGroup;
 import dong.lan.model.bean.checklist.CheckItem;
+import dong.lan.smarttrip.R;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 
 /**
@@ -27,10 +27,10 @@ import io.realm.Realm;
 
 public class CheckListAdapter extends BaseExpandableListAdapter {
 
-    private List<CheckGroup> checkGroups;
+    private RealmResults<CheckGroup> checkGroups;
     private Context mContext;
 
-    public CheckListAdapter(Context context, List<CheckGroup> checkGroups) {
+    public CheckListAdapter(Context context, RealmResults<CheckGroup> checkGroups) {
         this.checkGroups = checkGroups;
         mContext = context;
     }
@@ -138,7 +138,7 @@ public class CheckListAdapter extends BaseExpandableListAdapter {
             groupHolder.groupname.setText(checkGroup.getGroupName());
             groupHolder.contentNum.setText(count <= 0 ? "无" : count + "");
         }
-        Log.d("TAG", groupPosition + " - > getGroupView: " + convertView);
+        ALog.d("TAG", "getGroupView: " + groupPosition );
         return convertView;
     }
 
@@ -184,7 +184,7 @@ public class CheckListAdapter extends BaseExpandableListAdapter {
             itemHolder.remark.setText(checkItem.getRemark());
             itemHolder.tag.setChecked(checkItem.isCheck());
         }
-        Log.d("TAG", "getChildView: " + groupPosition + "->" + childPosition);
+        ALog.d("TAG", "getChildView: " + groupPosition + "->" + childPosition);
         return convertView;
     }
 
@@ -223,14 +223,14 @@ public class CheckListAdapter extends BaseExpandableListAdapter {
 
     public void deleteGroup(Realm realm, int groupPosition) {
         realm.beginTransaction();
-        checkGroups.get(groupPosition).deleteFromRealm();
+        checkGroups.deleteFromRealm(groupPosition);
         realm.commitTransaction();
         notifyDataSetChanged();
     }
 
     public void deleteItem(Realm realm, int groupPosition, int childPosition) {
         realm.beginTransaction();
-        checkGroups.get(groupPosition).getCheckItems().get(childPosition).deleteFromRealm();
+        checkGroups.get(groupPosition).getCheckItems().deleteFromRealm(childPosition);
         realm.commitTransaction();
         notifyDataSetChanged();
     }
@@ -243,7 +243,6 @@ public class CheckListAdapter extends BaseExpandableListAdapter {
 
         public GroupHolder(View convertView) {
             set(convertView);
-
         }
 
         public void set(View convertView) {

@@ -81,6 +81,7 @@ public class GatherInfoActivity extends BaseBarActivity implements GatherInfoVie
                     toast("集合信息已失效");
                     return;
                 }
+                presenter.switcherShow(false,switcherLtv);
                 usersList.setLayoutManager(new GridLayoutManager(GatherInfoActivity.this, 1));
                 addressInfoTv.setText("集合地点: " + gather.address);
                 gatherDetailTv.setText(gather.getShowContent());

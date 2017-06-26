@@ -32,9 +32,7 @@ dependencies {
     compile files('libs/soload.jar')
     compile files('libs/tls_sdk.jar')
     compile files('libs/wup-1.0.0-SNAPSHOT.jar')
-    compile files('libs/okhttp-3.3.1.jar')
     compile 'com.github.donlan:RelativeCardLayout:1.0'
-    compile files('libs/okio-1.7.0.jar')
     compile files('libs/org.apache.http.legacy.jar')
     compile files('libs/glide-3.7.0.jar')
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
@@ -49,4 +47,5 @@ dependencies {
     compile project(':avoscloud')
     compile files('libs/bugly_2.4.0_imsdk_release.jar')
     compile files('libs/libammsdk.jar')
+    compile 'com.airbnb.android:lottie:2.0.0'
 }

@@ -116,32 +116,32 @@ public class AddTravelPresenter implements ITravelAction {
                                     public void execute(Realm realm) {
                                         travel = BeanConvert.toTravel(avoTravel);
                                         realm.copyToRealmOrUpdate(travel);
-                                        final AVOTourist tourist = new AVOTourist();
-                                        tourist.setTravel(avoTravel);
-                                        tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
-                                        tourist.setRole(Permission.LEVEL_GUIDER);
-                                        tourist.setStatus(ITourist.STATUS_NORMAL);
-                                        tourist.saveEventually(new SaveCallback() {
-                                            @Override
-                                            public void done(AVException e) {
-                                                if (e == null) {
-                                                    Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
-                                                        @Override
-                                                        public void execute(Realm realm) {
-                                                            Tourist t = new Tourist();
-                                                            t.setObjId(tourist.getObjectId());
-                                                            t.setRole(tourist.getRole());
-                                                            t.setStatus(tourist.getStatus());
-                                                            t.setTravel(travel);
-                                                            t.setUser(UserManager.instance().currentUser());
-                                                            realm.copyToRealmOrUpdate(t);
-                                                        }
-                                                    });
-                                                } else {
-                                                    e.printStackTrace();
+                                    }
+                                });
+                                final AVOTourist tourist = new AVOTourist();
+                                tourist.setTravel(avoTravel);
+                                tourist.setOwner(AVOUser.getCurrentUser(AVOUser.class));
+                                tourist.setRole(Permission.LEVEL_GUIDER);
+                                tourist.setStatus(ITourist.STATUS_NORMAL);
+                                tourist.saveEventually(new SaveCallback() {
+                                    @Override
+                                    public void done(AVException e) {
+                                        if (e == null) {
+                                            Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
+                                                @Override
+                                                public void execute(Realm realm) {
+                                                    Tourist t = new Tourist();
+                                                    t.setObjId(tourist.getObjectId());
+                                                    t.setRole(tourist.getRole());
+                                                    t.setStatus(tourist.getStatus());
+                                                    t.setTravel(travel);
+                                                    t.setUser(UserManager.instance().currentUser());
+                                                    realm.copyToRealmOrUpdate(t);
                                                 }
-                                            }
-                                        });
+                                            });
+                                        } else {
+                                            e.printStackTrace();
+                                        }
                                     }
                                 });
                                 view.toast("保存成功");

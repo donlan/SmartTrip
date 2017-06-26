@@ -1,7 +1,10 @@
 package dong.lan.model.bean.checklist;
 
+import dong.lan.model.bean.user.User;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
+import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.RealmClass;
 
 /**
@@ -13,8 +16,14 @@ import io.realm.annotations.RealmClass;
 
 @RealmClass
 public class CheckGroup extends RealmObject {
+
+    private User creator;
+    @PrimaryKey
     private String groupName;
     private RealmList<CheckItem> checkItems;
+
+    @Ignore
+    public boolean isExpand;
 
     public CheckGroup(String groupName, RealmList<CheckItem> checkItems) {
 
@@ -25,6 +34,14 @@ public class CheckGroup extends RealmObject {
     public CheckGroup() {
     }
 
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
 
     public String getGroupName() {
         return groupName;
