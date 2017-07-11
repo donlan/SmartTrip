@@ -1,7 +1,7 @@
 package dong.lan.model.bean.notice;
 
+import base.GsonHelper;
 import dong.lan.model.base.Data;
-import dong.lan.model.base.GsonHelper;
 
 /**
  * Created by 梁桂栋 on 17-3-26 ： 下午10:56.

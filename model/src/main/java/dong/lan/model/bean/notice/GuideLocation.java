@@ -2,8 +2,8 @@ package dong.lan.model.bean.notice;
 
 import com.baidu.mapapi.model.LatLng;
 
+import base.GsonHelper;
 import dong.lan.model.base.Data;
-import dong.lan.model.base.GsonHelper;
 
 /**
  * Created by 梁桂栋 on 17-3-26 ： 上午12:32.

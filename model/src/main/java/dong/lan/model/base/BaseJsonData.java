@@ -1,6 +1,8 @@
 package dong.lan.model.base;
 
 
+import base.GsonHelper;
+
 /**
  * Created by 梁桂栋 on 17-3-25 ： 下午10:35.
  * Email:       760625325@qq.com

@@ -5,9 +5,9 @@ import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import base.GsonHelper;
 import dong.lan.model.Config;
 import dong.lan.model.base.Data;
-import dong.lan.model.base.GsonHelper;
 import dong.lan.model.features.INotice;
 import dong.lan.model.utils.TimeUtil;
 import io.realm.Realm;
