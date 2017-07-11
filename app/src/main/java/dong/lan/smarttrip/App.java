@@ -32,6 +32,7 @@ import dong.lan.smarttrip.common.FriendShipHandler;
 import dong.lan.smarttrip.common.GroupHandler;
 import dong.lan.smarttrip.common.SPHelper;
 import dong.lan.smarttrip.utils.Foreground;
+import dong.lan.weather.WeatherRealm;
 
 /**
  * Created by 梁桂栋 on 2016/9/13.
@@ -90,6 +91,8 @@ public class App extends MultiDexApplication implements DelayInitView<Integer>, 
 
         //Realm
         RealmInit.init(this);
+        WeatherRealm.get().init();
+
 
         //SharePreference
         SPHelper.instance().init(this, Config.DEFAULT_SP);
