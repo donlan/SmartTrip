@@ -1,4 +1,4 @@
-package dong.lan.smarttrip.adapters;
+package base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,20 +13,26 @@ import java.util.List;
  * description: SmartTrip
  */
 
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-    private Fragment[] fragments;
-    public MyFragmentPagerAdapter(FragmentManager fm,Fragment[] fragments) {
+public class ListFragmentPagerAdapter extends FragmentPagerAdapter {
+    private List<Fragment> fragments;
+    public ListFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return fragments[position];
+        return fragments.get(position);
     }
 
     @Override
     public int getCount() {
-        return fragments ==null ? 0 : fragments.length;
+        return fragments ==null ? 0 : fragments.size();
+    }
+
+
+    @Override
+    public long getItemId(int position) {
+        return fragments.get(position).getArguments().getLong("id");
     }
 }

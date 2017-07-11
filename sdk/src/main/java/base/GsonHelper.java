@@ -1,9 +1,11 @@
-package dong.lan.model.base;
+package base;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.Reader;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by 梁桂栋 on 17-1-31 ： 下午8:22.
@@ -33,6 +35,11 @@ public class GsonHelper {
 
     public <T> T toTarget(String json, Class<T> tClass) {
         return gson.fromJson(json, tClass);
+    }
+
+    public <T> List<T> toArray(String json,Class<T[]> clazz){
+        T[] arr = gson.fromJson(json,clazz);
+        return Arrays.asList(arr);
     }
 
     public <T> T toTarget(Reader reader, Class<T> tClass) {
