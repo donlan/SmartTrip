@@ -1,0 +1,26 @@
+{
+  "name": "smarttrip",
+  "version": "1.0.0",
+  "description": "a travel manager tools",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donlan/SmartTrip.git"
+  },
+  "keywords": [
+    "travel"
+  ],
+  "author": "dooze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donlan/SmartTrip/issues"
+  },
+  "homepage": "https://github.com/donlan/SmartTrip#readme",
+  "dependencies": {
+    "react": "^16.0.0-alpha.12",
+    "react-native": "^0.45.1"
+  }
+}

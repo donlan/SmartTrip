@@ -12,7 +12,7 @@ buildscript {
 
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
         classpath "io.realm:realm-gradle-plugin:3.3.2"
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
@@ -21,7 +21,7 @@ buildscript {
         classpath 'com.antfortune.freeline:gradle:0.8.7'
     }
 }
-
+def rootDir = '/home/dooze/AndroidStudioProjects/SmartTrip';
 allprojects {
     repositories {
         jcenter()
@@ -30,6 +30,11 @@ allprojects {
         }
         maven {
             url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+        }
+
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$rootDir/node_modules/react-native/android"
         }
     }
 }
