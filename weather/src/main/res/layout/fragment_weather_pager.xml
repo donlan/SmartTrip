@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_shadow_end_color"
+        android:orientation="vertical"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+        <dong.lan.library.RelativeCarView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            app:rcv_backgroundColor="@color/avoscloud_feedback_white"
+            app:rcv_elevation="6dp"
+            app:rcv_elevationColor="@color/cardview_shadow_end_color"
+            app:rcv_marginX="12dp"
+            app:rcv_marginY="12dp"
+            app:rcv_radius="2dp">
+
+            <LinearLayout
+                android:id="@+id/weather_bar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/location_address"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="桂平"
+                    android:textSize="20sp" />
+
+                <base.RotateImageButton
+                    android:id="@+id/refresher"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:background="@null"
+                    android:src="@drawable/ic_refresher" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/cur_tmp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weather_bar"
+                android:text="31°"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/tmp_rang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cur_tmp"
+                android:text="23～31℃"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cur_cond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/weather_bar"
+                android:text="多云转晴"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/wind_dir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/cur_cond"
+                android:layout_marginTop="14dp"
+                android:text="西南风"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/wind_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/wind_dir"
+                android:layout_marginTop="14dp"
+                android:text="微风 \\ 7m/s"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/hourly_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wind_info"
+                android:layout_marginTop="10dp" />
+
+        </dong.lan.library.RelativeCarView>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <dong.lan.library.RelativeCarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:rcv_backgroundColor="@color/avoscloud_feedback_white"
+        app:rcv_elevation="6dp"
+        app:rcv_elevationColor="@color/cardview_shadow_end_color"
+        app:rcv_marginX="12dp"
+        app:rcv_marginY="12dp"
+        app:rcv_radius="2dp">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/day_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sug_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/day_list"
+            android:layout_marginTop="6dp" />
+
+    </dong.lan.library.RelativeCarView>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -9,4 +9,14 @@ public class Wind {
     public String dir;
     public String sc;
     public String spd;
+
+    @Override
+    public String toString() {
+        return "Wind{" +
+                "deg='" + deg + '\'' +
+                ", dir='" + dir + '\'' +
+                ", sc='" + sc + '\'' +
+                ", spd='" + spd + '\'' +
+                '}';
+    }
 }

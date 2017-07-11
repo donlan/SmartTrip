@@ -7,4 +7,12 @@ package dong.lan.weather.bean.weather;
 public class Tmp {
     public String max;
     public String min;
+
+    @Override
+    public String toString() {
+        return "Tmp{" +
+                "max='" + max + '\'' +
+                ", min='" + min + '\'' +
+                '}';
+    }
 }

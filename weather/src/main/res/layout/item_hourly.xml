@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dong.lan.library.RelativeCarView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    app:rcv_backgroundColor="@color/avoscloud_feedback_white"
+    app:rcv_elevation="6dp"
+    app:rcv_elevationColor="@color/cardview_shadow_end_color"
+    app:rcv_marginX="12dp"
+    app:rcv_marginY="12dp"
+    app:rcv_radius="2dp">
+
+
+    <TextView
+        android:id="@+id/item_hourly_tmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="34°"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:id="@+id/item_hourly_cond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_hourly_tmp"
+        android:layout_marginTop="8dp"
+        android:text="多云"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_hourly_wind_dir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/item_hourly_cond"
+        android:text="西南风"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/item_hourly_wind_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_hourly_wind_dir"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/item_hourly_cond"
+        android:text="微风 9m/s"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/item_hourly_wind_info"
+        android:id="@+id/item_hourly_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="12:00"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</dong.lan.library.RelativeCarView>

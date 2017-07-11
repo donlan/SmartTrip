@@ -14,5 +14,5 @@ import retrofit2.http.Query;
 
 public interface QueryCity {
     @GET("search")
-    Call<SearchResult> queryCityIdByLocation(@Query("city") String lnglat);
+    Call<SearchResult> queryCityIdByLocation(@Query("weatherCity") String lnglat);
 }

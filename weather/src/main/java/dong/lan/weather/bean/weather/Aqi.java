@@ -10,7 +10,7 @@ public class Aqi {
     @Override
     public String toString() {
         return "Aqi{" +
-                "city=" + city +
+                "weatherCity=" + city +
                 '}';
     }
 }

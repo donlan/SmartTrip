@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dong.lan.library.RelativeCarView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rcv_radius="2dp"
+    app:rcv_elevationColor="@color/cardview_shadow_end_color"
+    app:rcv_elevation="6dp"
+    app:rcv_marginX="8dp"
+    app:rcv_marginY="8dp"
+    app:rcv_backgroundColor="@color/avoscloud_feedback_white"
+    android:padding="14dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/weather_cur_loc_city"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:drawableLeft="@drawable/ic_my_location"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="当前定位位置"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_below="@id/weather_cur_loc_city"
+        android:id="@+id/weather_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="搜索景点，城市"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/weather_search"
+        android:layout_marginTop="10dp"
+        android:id="@+id/weather_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <dong.lan.labelTextview.LabelTextView
+        android:id="@+id/city_commit"
+        app:radius="25dp"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:bg_color="#222"
+        android:text="添加此天气"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:layout_height="50dp"/>
+</dong.lan.library.RelativeCarView>

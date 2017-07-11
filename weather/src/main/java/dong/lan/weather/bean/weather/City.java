@@ -15,7 +15,7 @@ public class City {
 
     @Override
     public String toString() {
-        return "City{" +
+        return "WeatherCity{" +
                 "aqi='" + aqi + '\'' +
                 ", co='" + co + '\'' +
                 ", no='" + no + '\'' +

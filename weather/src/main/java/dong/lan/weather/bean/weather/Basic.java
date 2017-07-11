@@ -15,7 +15,7 @@ public class Basic {
     @Override
     public String toString() {
         return "Basic{" +
-                "city='" + city + '\'' +
+                "weatherCity='" + city + '\'' +
                 ", cnty='" + cnty + '\'' +
                 ", id='" + id + '\'' +
                 ", lat='" + lat + '\'' +
