@@ -61,7 +61,7 @@ public class UserCenterFragment extends BaseFragment implements UserCenterView {
 
     @OnClick(R.id.me_about)
     void toAboutAc() {
-
+        startActivity(new Intent(getContext(),AboutActivity.class));
     }
 
     @OnClick(R.id.me_favorite)

@@ -1,0 +1,83 @@
+[
+    {
+        "outputFile": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-w1280dp-v13/values-w1280dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/src/main/res/values-w1280dp/layouts.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 54,
+                        "endOffset": 105
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 106,
+                    "endOffset": 212
+                },
+                "from": {
+                    "file": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/src/main/res/values-w1280dp/dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 255,
+                        "endColumn": 106,
+                        "endOffset": 357
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 217,
+                    "endColumn": 108,
+                    "endOffset": 321
+                },
+                "from": {
+                    "file": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/src/main/res/values-w1280dp/dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 146,
+                        "endColumn": 108,
+                        "endOffset": 250
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 326,
+                    "endColumn": 90,
+                    "endOffset": 412
+                },
+                "from": {
+                    "file": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/src/main/res/values-w1280dp/dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 90,
+                        "endOffset": 141
+                    }
+                }
+            }
+        ]
+    }
+]

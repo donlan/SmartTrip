@@ -40,6 +40,7 @@ public class FirstConfigTask extends AsyncTask<String, Integer, Object> {
             @Override
             public void onError(int i, String s) {
                 Log.d(TAG, "onError: " + i + "," + s);
+                taskCallback.onTackCallback(s);
             }
 
             @Override

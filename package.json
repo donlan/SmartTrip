@@ -4,7 +4,7 @@
   "description": "a travel manager tools",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js z start"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/donlan/SmartTrip#readme",
   "dependencies": {
     "react": "^16.0.0-alpha.12",
-    "react-native": "^0.45.1"
+    "react-native": "^0.45.1",
+    "react-native-wordpress-editor": "^2.0.1"
   }
 }

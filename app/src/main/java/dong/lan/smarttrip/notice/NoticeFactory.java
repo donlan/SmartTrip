@@ -1,6 +1,6 @@
 package dong.lan.smarttrip.notice;
 
-import dong.lan.model.base.GsonHelper;
+import base.GsonHelper;
 import dong.lan.model.bean.notice.Gather;
 import dong.lan.model.bean.notice.Notice;
 import dong.lan.model.bean.notice.NoticeShow;

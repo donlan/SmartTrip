@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:padding="12dp"
-            android:src="@drawable/plus" />
+            />
 
     </LinearLayout>
 

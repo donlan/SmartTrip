@@ -3,8 +3,6 @@ package dong.lan.weather.bean;
 
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSON;
-import com.blankj.ALog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,25 +32,25 @@ import io.realm.annotations.PrimaryKey;
  * Created by 梁桂栋 on 17-7-8 ： 下午10:05.
  * Email:       760625325@qq.com
  * GitHub:      github.com/donlan
- * description: SmartTrip
+ * description: 天气信息封装
  */
 
 public class WeatherItem extends RealmObject implements Weather {
 
     @PrimaryKey
-    public String id;
-    public WeatherCity weatherCity;
-    public long lastUpdateTime;
-    public String tmp;
-    public String tmpRang;
-    public String windDir;
-    public String windInfo;
-    public String cond;
+    public String id;                   //城市id
+    public WeatherCity weatherCity;     //城市信息
+    public long lastUpdateTime;         //最后一次更新的时间
+    public String tmp;                  //当前温度
+    public String tmpRang;              //温度范围
+    public String windDir;              //风向
+    public String windInfo;             //其他风信息（风力，速度）
+    public String cond;                 //天气情况
 
 
-    public String suggests;
-    public String dayWeathers;
-    public String weatherHourlies;
+    public String suggests;             //天气相关建议
+    public String dayWeathers;          //天气日报
+    public String weatherHourlies;      //天气小时报
 
 
     @Ignore
@@ -66,6 +64,10 @@ public class WeatherItem extends RealmObject implements Weather {
     List<WeatherHourly> weatherHourly;
 
 
+    /**
+     * 将网络请求到的天气信息进行解析
+     * @param weatherResult
+     */
     public void generate(WeatherResult weatherResult) {
         HeWeatherItem weatherItem = weatherResult.HeWeather5.get(0);
         id = weatherItem.basic.id;
@@ -123,7 +125,6 @@ public class WeatherItem extends RealmObject implements Weather {
         List<DailyForecastItem> df = weatherItem.daily_forecast;
         for (int i = 0; i < df.size(); i++) {
             DailyForecastItem item = df.get(i);
-            ALog.d(item);
             dayWeather.add(new WeatherDay(item.date.substring(5), item.cond.txt_d + " " + item.cond.txt_n,
                     item.tmp.min + "~" + item.tmp.max + "℃", item.wind.dir + " " + item.wind.sc));
         }
@@ -135,6 +136,9 @@ public class WeatherItem extends RealmObject implements Weather {
         dayWeathers = GsonHelper.getInstance().toJson(dayWeather);
     }
 
+    /**
+     * 将日报，小时报，天气建议的json字符串重新解析成列表信息
+     */
     public void parseJSON() {
         if (TextUtils.isEmpty(suggests) || TextUtils.isEmpty(weatherHourlies) || TextUtils.isEmpty(dayWeathers)) {
             return;

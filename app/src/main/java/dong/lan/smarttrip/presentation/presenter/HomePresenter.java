@@ -23,7 +23,7 @@ import dong.lan.smarttrip.model.im.GroupInfo;
 import dong.lan.model.bean.user.User;
 import com.tencent.qcloud.presentation.business.UserInfo;
 import dong.lan.smarttrip.presentation.viewfeatures.HomeView;
-import dong.lan.smarttrip.ui.SplashActivity;
+import dong.lan.smarttrip.ui.access.SplashActivity;
 import dong.lan.smarttrip.ui.customview.DialogActivity;
 import io.realm.Realm;
 

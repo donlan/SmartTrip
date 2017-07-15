@@ -52,6 +52,7 @@ public class DayWeatherAdapter extends RecyclerView.Adapter<DayWeatherAdapter.Vi
     public void reset(List<DayWeather> dayWeathers) {
         if(this.dayWeathers == null)
             this.dayWeathers = new ArrayList<>();
+        this.dayWeathers.clear();
         this.dayWeathers.addAll(dayWeathers);
     }
 

@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/home/dooze/.android/build-cache/3cf101862b42947beb3ec9fb51597da29e4ef300/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_default.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/home/dooze/AndroidStudioProjects/SmartTrip/WordPressEditor/build/intermediates/res/merged/androidTest/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/dooze/.android/build-cache/3c54892a3e091d499b92b32ddfd67c3499657b8d/output/res/color-v23/abc_color_highlight_material.xml"
+    }
+]

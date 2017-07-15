@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
 import com.ashokvarma.bottomnavigation.BadgeItem;
@@ -27,6 +26,7 @@ import dong.lan.model.bean.user.User;
 import dong.lan.model.permission.Permission;
 import dong.lan.smarttrip.App;
 import dong.lan.smarttrip.R;
+import dong.lan.smarttrip.base.BaseActivity;
 import dong.lan.smarttrip.base.DelayInitView;
 import dong.lan.smarttrip.common.EasyFragmentManager;
 import dong.lan.smarttrip.common.UserManager;
@@ -40,7 +40,7 @@ import io.realm.Realm;
 /**
  * Tab页主界面
  */
-public class HomeActivity extends AppCompatActivity implements HomeView, BottomNavigationBar.OnTabSelectedListener {
+public class HomeActivity extends BaseActivity implements HomeView, BottomNavigationBar.OnTabSelectedListener {
     private static final String TAG = HomeActivity.class.getSimpleName();
 
     private BottomNavigationBar bnb;
@@ -174,6 +174,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView, BottomN
         new FirstConfigTask(new TaskCallback<String>() {
             @Override
             public void onTackCallback(String data) {
+                toast(data);
                 delayInitView.start(null);
             }
         }).execute(UserManager.instance().identifier());

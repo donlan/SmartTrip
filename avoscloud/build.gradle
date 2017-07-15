@@ -38,9 +38,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     // LeanCloud 基础包
-    compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
+    compile 'cn.leancloud.android:avoscloud-sdk:v3.16.4'
     // LeanCloud 用户反馈包
-    compile 'cn.leancloud.android:avoscloud-feedback:v3.+@aar'
+    compile 'cn.leancloud.android:avoscloud-feedback:v3.16.4@aar'
     // LeanCloud 应用内搜索包
-    compile 'cn.leancloud.android:avoscloud-search:v3.+@aar'
+    compile 'cn.leancloud.android:avoscloud-search:v3.16.4@aar'
 }

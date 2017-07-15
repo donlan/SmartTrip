@@ -51,6 +51,7 @@ public class WeatherSuggestAdapter extends RecyclerView.Adapter<WeatherSuggestAd
     public void reset(List<WeatherSuggest> weatherSuggests) {
         if(suggests == null)
             suggests = new ArrayList<>();
+        suggests.clear();
         suggests.addAll(weatherSuggests);
     }
 

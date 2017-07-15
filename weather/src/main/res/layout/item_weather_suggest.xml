@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
 
 
 </dong.lan.library.RelativeCarView>

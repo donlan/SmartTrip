@@ -43,6 +43,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.4.1'
+    compile "com.facebook.react:react-native:0.45.1"
+    compile project(":WordPressEditor")
     compile project(':ui')
     compile project(':presentation')
     compile project(':libzxing')
@@ -58,4 +62,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.0.3'
+
 }

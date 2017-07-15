@@ -11,6 +11,8 @@ import {
   ToastAndroid,
   View
 } from 'react-native';
+import { Navigation } from 'react-native-navigation';
+Navigation.registerComponent('EditorScreen', () => EditorScreen);
 
 class HelloWorld extends React.Component {
 
@@ -60,3 +62,14 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'EditorScreen',
+    navigatorStyle: {
+      navBarTextColor: '#ffffff',
+      navBarButtonColor: '#ffffff',
+      navBarBackgroundColor: '#00a0d2'
+    },
+    title: 'Welcome'
+  }
+});

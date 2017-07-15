@@ -400,5 +400,10 @@
     <string name="guide_location_swithcer_text">启用我的位置</string>
     <string name="gather">集合</string>
     <string name="leader_location">领队位置</string>
+    <string name="select_image">选择图片</string>
+    <string name="select_image_fail">选取图片失败</string>
+    <string name="select_video">选择视频</string>
+    <string name="select_video_fail">选取视频失败</string>
+    <string name="select_image_slow_network">慢速选择图片</string>
 
 </resources>

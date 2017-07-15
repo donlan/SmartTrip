@@ -20,7 +20,7 @@ import dong.lan.smarttrip.R;
 import dong.lan.smarttrip.model.im.FriendshipInfo;
 import dong.lan.smarttrip.model.im.GroupInfo;
 import com.tencent.qcloud.presentation.business.UserInfo;
-import dong.lan.smarttrip.ui.SplashActivity;
+import dong.lan.smarttrip.ui.access.SplashActivity;
 
 public class DialogActivity extends Activity implements View.OnClickListener {
 

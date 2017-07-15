@@ -53,6 +53,7 @@ public class HourlyWeatherAdapter extends RecyclerView.Adapter<HourlyWeatherAdap
     public void reset(List<WeatherHourly> weatherHourlies) {
         if(hourlies == null)
             hourlies = new ArrayList<>();
+        hourlies.clear();
         hourlies.addAll(weatherHourlies);
     }
 
